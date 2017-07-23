@@ -15,8 +15,8 @@
 					echo "<form method=\"POST\" action=\"checkin.php\">";
 					echo "<input type=\"hidden\" name=\"id\" value=\"".$_POST[id]."\">";
 					echo "<input type=\"hidden\" name=\"name\" value=\"".$_POST[name]."\">";
-					echo "<input type=\"button\" name=\"force\" value=\"是\">";
-					echo "<input type=\"button\" name=\"force\" value=\"否\">";
+					echo "<input type=\"submit\" name=\"force\" value=\"是\">";
+					echo "<input type=\"submit\" name=\"force\" value=\"否\">";
 					echo "</form>";
 				}
 				else {
