@@ -18,7 +18,7 @@
 					<th>已上課日期</th>
 				</tr>
 				<?
-					$result = mysql_query("select * from attend where number='$_POST[id]'");
+					$result = mysql_query("select * from attend where student_id='$_POST[id]'");
 					if(mysql_num_rows($result)){
 						while($row = mysql_fetch_array($result)){
 							echo "<tr>";
