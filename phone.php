@@ -15,6 +15,7 @@
 						while($row = mysql_fetch_array($result)){
 							echo "<form method=\"POST\" action=\"checkin.php\">";
 							echo "<input type=\"hidden\" name=\"id\" value=\"".$row['id']."\">";
+							echo "<input type=\"hidden\" name=\"name\" value=\"".$row['name']."\">";
 							echo "<input type=\"submit\" style=\"width:200px; height:75px; background-color:white; margin: 4px 2px; font-size:36;\" value=\"".$row['name']."\"><br>";
 							echo "</form>";
 						}
