@@ -1,6 +1,6 @@
 <?
 	include("connect.php");
-	$result = mysql_query("insert into attend (student_id, date) values ('$_POST[id]',date(current_time()))");
+	$result = mysql_query("insert into attend (student_id, date) values ('$_POST[id]', CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))");
 	if(!$result){
 		die('點名失敗' . mysql_error());
 	}
