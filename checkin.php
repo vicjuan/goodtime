@@ -1,9 +1,5 @@
 <?
 	include("connect.php");
-	$result = mysql_query("insert into attend (student_id, date) values ('$_POST[id]', CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))");
-	if(!$result){
-		die('點名失敗' . mysql_error());
-	}
 ?>
 <html>
 	<head>
@@ -23,6 +19,10 @@
 					echo "</form>";
 				}
 				else {
+					$result = mysql_query("insert into attend (student_id, date) values ('$_POST[id]', CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))");
+					if(!$result){
+						die('點名失敗' . mysql_error());
+					}
 					echo $_POST[name]."點名成功！";
 					echo "<table border=\"1\">";
 					echo "<tr><th>已上課日期</th></tr>";
