@@ -9,15 +9,15 @@
 	<body bgcolor="#00BBBB">
 		<center>
 			<form method="POST" action="checkin.php">
-				Please select your name
-<?
-	$result = mysql_query("select * from student where number='$_POST[phone]'");
-	if(mysql_num_rows($result)){
-		while($row = mysql_fetch_array($result)){
-			echo "<input type=\"submit\" name=\"name\" value=\"".$row['name']."\">";
-		}
-	}
-?>
+				你是哪一位？
+				<?
+					$result = mysql_query("select * from student where number='$_POST[phone]'");
+					if(mysql_num_rows($result)){
+						while($row = mysql_fetch_array($result)){
+							echo "<input type=\"submit\" name=\"name\" value=\"".$row['name']."\">";
+						}
+					}
+				?>
 			</form>
 		</center>
 	</body>
