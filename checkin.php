@@ -10,7 +10,7 @@
 		<center>
 			<?
 				$result = mysql_query("select * from attend where student_id='$_POST[id]' and date(current_date())=date(date)");
-				if(mysql_num_rows($result)){
+				if(mysql_num_rows($result) && $_POST[force] != true){
 					echo "你今天已經點名過了喔！確定還要再點一次嗎？";
 					echo "<form method=\"POST\" action=\"checkin.php\">";
 					echo "<input type=\"hidden\" name=\"id\" value=\"".$_POST[id]."\">";
