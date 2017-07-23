@@ -9,12 +9,12 @@
 	<body bgcolor="#00BBBB">
 		<center>
 			<form method="POST" action="checkin.php">
-				你是哪一位？
+				你是哪一位？<br>
 				<?
 					$result = mysql_query("select * from student where number='$_POST[phone]'");
 					if(mysql_num_rows($result)){
 						while($row = mysql_fetch_array($result)){
-							echo "<input type=\"submit\" name=\"name\" value=\"".$row['name']."\">";
+							echo "<input type=\"submit\" name=\"name\" style=\"width:200px\" value=\"".$row['name']."\"><br>";
 						}
 					}
 				?>
