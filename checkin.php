@@ -12,12 +12,20 @@
 	</head>
 	<body bgcolor="#00BBBB">
 		<center>
-			<?=$_POST[name]?>點名成功！
-			<table border="1">
-				<tr>
-					<th>已上課日期</th>
-				</tr>
-				<?
+			<?
+				$result = mysql_query("select * from attend where student_id='$_POST[id]' and date(current_date())=date(date)");
+				if(mysql_num_rows($result)){
+					echo "你今天已經點名過了喔！確定還要再點一次嗎？";
+					echo "<form method=\"POST\" action=\"checkin.php\">";
+					echo "<input type=\"hidden\" name=\"id\" value=\"".$_POST[id]."\">";
+					echo "<input type=\"hidden\" name=\"name\" value=\"".$_POST[name]."\">";
+					echo "<input type=\"hidden\" name=\"force\" value=\"true\">";
+					echo "</form>";
+				}
+				else {
+					echo $_POST[name]."點名成功！";
+					echo "<table border=\"1\">";
+					echo "<tr><th>已上課日期</th></tr>";
 					$result = mysql_query("select * from attend where student_id='$_POST[id]'");
 					if(mysql_num_rows($result)){
 						while($row = mysql_fetch_array($result)){
@@ -28,8 +36,9 @@
 							echo "</tr>";
 						}
 					}
-				?>
-			</table>
+					echo "</table>";
+				}
+			?>
 		</center>
 	</body>
 </html>
