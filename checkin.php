@@ -13,7 +13,7 @@
 	<body bgcolor="#00BBBB">
 		<center>
 			<?=$_POST[name]?>點名成功！
-			<table>
+			<table border="1">
 				<tr>
 					<th>已上課日期</th>
 				</tr>
