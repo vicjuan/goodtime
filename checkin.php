@@ -10,12 +10,13 @@
 		<center>
 			<?
 				$result = mysql_query("select * from attend where student_id='$_POST[id]' and date(current_date())=date(date)");
-				if(mysql_num_rows($result) && $_POST[force] != true){
+				if(mysql_num_rows($result) && $_POST[force] != "是"){
 					echo "你今天已經點名過了喔！確定還要再點一次嗎？";
 					echo "<form method=\"POST\" action=\"checkin.php\">";
 					echo "<input type=\"hidden\" name=\"id\" value=\"".$_POST[id]."\">";
 					echo "<input type=\"hidden\" name=\"name\" value=\"".$_POST[name]."\">";
-					echo "<input type=\"hidden\" name=\"force\" value=\"true\">";
+					echo "<input type=\"button\" name=\"force\" value=\"是\">";
+					echo "<input type=\"button\" name=\"force\" value=\"否\">";
 					echo "</form>";
 				}
 				else {
