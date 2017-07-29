@@ -17,9 +17,10 @@ function draw_calendar($month,$year){
 
 	/* draw table */
 	$calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
+	$calendar.= '<tr class="calendar-row"><td colspan="7">'.$year.'年'.$month.'月</td></tr>';
 
 	/* table headings */
-	$headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+	$headings = array('日','一','二','三','四','五','六');
 	$calendar.= '<tr class="calendar-row"><td class="calendar-day-head">'.implode('</td><td class="calendar-day-head">',$headings).'</td></tr>';
 
 	/* days and weeks vars now ... */
