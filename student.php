@@ -11,6 +11,8 @@
 		var mark = function(id){
 			var element = document.getElementById(id);
 			element.className += " lightblue";
+			var countDiv = element.getElementsByClassName("count-number")[0];
+			countDiv.innerText += "O ";
 		}
 	</script>
 	<body bgcolor="#00BBBB">
