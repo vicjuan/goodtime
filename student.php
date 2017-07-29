@@ -42,7 +42,7 @@
 				}
 				echo "<script language=\"javascript\">";
 				foreach($ids as $id){
-					echo "mark(" . $id . ");";
+					echo "mark(\"" . $id . "\");";
 				}
 				echo "</script>";
 			?>
