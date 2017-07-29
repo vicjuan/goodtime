@@ -54,7 +54,7 @@
 					if(mysql_num_rows($result)){
 						echo "<table class=\"calendar\">";
 						echo "<tbody>";
-						echo "<tr>";
+						echo "<tr class=\"calendar-row\">";
 						echo "<td class=\"calendar-day-head\">堂數</th>";
 						echo "<td class=\"calendar-day-head\">繳費日期</th>";
 						echo "</tr>";
