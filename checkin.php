@@ -26,19 +26,7 @@
 						die('點名失敗' . mysql_error());
 					}
 					echo $_POST[name]."點名成功！";
-					echo "<table border=\"1\">";
-					echo "<tr><th>已上課日期</th></tr>";
-					$result = mysql_query("select * from attend where student_id='$_POST[id]'");
-					if(mysql_num_rows($result)){
-						while($row = mysql_fetch_array($result)){
-							echo "<tr>";
-							echo "<td>";
-							echo $row[date];
-							echo "</td>";
-							echo "</tr>";
-						}
-					}
-					echo "</table>";
+					echo "<iframe src=\"student.php?id=".$_POST[id]."&name=".$_POST[name]."\" width=800 height=800 style=\"border:0\"></iframe>";
 				}
 			?>
 		</center>
