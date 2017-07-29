@@ -1,5 +1,6 @@
 <?
 	include("connect.php");
+	include("calendar.php");
 ?>
 <html>
 	<head>
@@ -10,8 +11,6 @@
 		<center>
 			<?
 				$array = [];
-				echo "<table border=\"1\">";
-				echo "<tr><th>出席日期</th></tr>";
 				$result = mysql_query("select unix_timestamp(date) as time from attend where student_id=$_GET[id]");
 				if(mysql_num_rows($result)){
 					while($row = mysql_fetch_array($result)){
@@ -32,7 +31,6 @@
 						echo $calendar;
 					}
 				}
-				echo "</table>";
 			?>
 		</center>
 	</body>
