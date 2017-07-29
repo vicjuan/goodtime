@@ -48,6 +48,20 @@
 					echo "mark(\"" . $id . "\");";
 				}
 				echo "</script>";
+				if($_GET[showPay] == 'true'){
+					echo "學生" . $_GET[name] . "的繳費情形";
+					$result = mysql_query("select * from pay where student_id=$_GET[id]");
+					if(mysql_num_rows($result)){
+						echo "<table border=1>";
+						while($row = mysql_fetch_array($result)){
+							echo "<tr>";
+							echo "<td>" . $row[pay_class] . "</td>";
+							echo "<td>" . $row[time] . "</td>";
+							echo "</tr>";
+						}
+						echo "</table>";
+					}
+				}
 			?>
 		</center>
 	</body>
