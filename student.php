@@ -54,13 +54,13 @@
 					if(mysql_num_rows($result)){
 						echo "<table border=1>";
 						echo "<tr>";
-						echo "<th>堂數</th>";
-						echo "<th>繳費日期</th>";
+						echo "<td class=\"calendar-day-head\">堂數</th>";
+						echo "<td class=\"calendar-day-head\">繳費日期</th>";
 						echo "</tr>";
 						while($row = mysql_fetch_array($result)){
 							echo "<tr>";
-							echo "<td>" . $row[pay_class] . "</td>";
-							echo "<td>" . $row[time] . "</td>";
+							echo "<td class=\"calendar-day\">" . $row[pay_class] . "</td>";
+							echo "<td class=\"calendar-day\">" . $row[time] . "</td>";
 							echo "</tr>";
 						}
 						echo "</table>";
