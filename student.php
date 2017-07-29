@@ -53,6 +53,10 @@
 					$result = mysql_query("select * from pay where student_id=$_GET[id]");
 					if(mysql_num_rows($result)){
 						echo "<table border=1>";
+						echo "<tr>";
+						echo "<th>堂數</th>";
+						echo "<th>繳費日期</th>";
+						echo "</tr>";
 						while($row = mysql_fetch_array($result)){
 							echo "<tr>";
 							echo "<td>" . $row[pay_class] . "</td>";
