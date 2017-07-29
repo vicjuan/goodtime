@@ -53,6 +53,7 @@
 					$result = mysql_query("select * from pay where student_id=$_GET[id]");
 					if(mysql_num_rows($result)){
 						echo "<table class=\"calendar\">";
+						echo "<tbody>";
 						echo "<tr>";
 						echo "<td class=\"calendar-day-head\">堂數</th>";
 						echo "<td class=\"calendar-day-head\">繳費日期</th>";
@@ -63,6 +64,7 @@
 							echo "<td class=\"calendar-day\">" . $row[time] . "</td>";
 							echo "</tr>";
 						}
+						echo "</tbody>";
 						echo "</table>";
 					}
 				}
