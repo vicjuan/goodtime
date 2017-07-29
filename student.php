@@ -52,7 +52,7 @@
 					echo "學生" . $_GET[name] . "的繳費情形";
 					$result = mysql_query("select * from pay where student_id=$_GET[id]");
 					if(mysql_num_rows($result)){
-						echo "<table class=\"calendar\">";
+						echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
 						echo "<tbody>";
 						echo "<tr class=\"calendar-row\">";
 						echo "<td class=\"calendar-day-head\">堂數</th>";
