@@ -17,7 +17,7 @@ function draw_calendar($month,$year){
 
 	/* draw table */
 	$calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
-	$calendar.= '<tr class="calendar-row"><td colspan="7">'.$year.'年'.$month.'月</td></tr>';
+	$calendar.= '<tr class="calendar-row"><td class="calendar-day-head" colspan="7" align="center">'.$year.'年'.$month.'月</td></tr>';
 
 	/* table headings */
 	$headings = array('日','一','二','三','四','五','六');
