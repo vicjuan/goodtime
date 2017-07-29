@@ -18,6 +18,7 @@
 	<body bgcolor="#00BBBB">
 		<center>
 			<?
+				echo "學生" . $_GET[name] . "的出席情形";
 				$calendars = [];
 				$ids = [];
 				$result = mysql_query("select unix_timestamp(date) as time from attend where student_id=$_GET[id]");
