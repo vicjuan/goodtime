@@ -9,7 +9,7 @@
 	<body bgcolor="#00BBBB">
 		<center>
 			<?
-\				echo "<table border=\"1\">";
+				echo "<table border=\"1\">";
 				echo "<tr><th>學生姓名</th></tr>";
 				$result = mysql_query("select * from student");
 				if(mysql_num_rows($result)){
