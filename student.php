@@ -60,8 +60,8 @@
 						echo "</tr>";
 						while($row = mysql_fetch_array($result)){
 							echo "<tr>";
-							echo "<td class=\"calendar-day\">" . $row[pay_class] . "</td>";
-							echo "<td class=\"calendar-day\">" . $row[time] . "</td>";
+							echo "<td class=\"calendar-day\" style=\"text-align: center;\">" . $row[pay_class] . "</td>";
+							echo "<td class=\"calendar-day\" style=\"width: initial;\">" . $row[time] . "</td>";
 							echo "</tr>";
 						}
 						echo "</tbody>";
