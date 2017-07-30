@@ -8,14 +8,9 @@
 		<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 	</head>
 	<script language="javascript">
-		var mark = function(id, inPeriod){
+		var mark = function(id, className){
 			var element = document.getElementById(id);
-			if(inPeriod){
-				element.className += " lightblue";
-			}
-			else{
-				element.className += " pink";
-			}
+			element.className += " " + className;
 			var countDiv = element.getElementsByClassName("count-number")[0];
 			countDiv.innerText += "O ";
 		}
@@ -50,15 +45,23 @@
 				}
 				$result = mysql_query("select sum(pay_class) as total from pay where student_id=$_GET[id]");
 				$payTotal = mysql_fetch_array($result)[total];
-				$result = mysql_query("select pay_class from pay where student_id=$_GET[id] order by time desc limit 1");
-				$lastPay = mysql_fetch_array($result)[pay_class];
-				
+				$lastPay = 0;
+				if($payTotal > count($ids)){
+					$result = mysql_query("select pay_class from pay where student_id=$_GET[id] order by time desc limit 1");
+					$lastPay = mysql_fetch_array($result)[pay_class];	
+				}
 				echo "<script language=\"javascript\">";
 				$counter = 0;
 				foreach($ids as $id){
 					$counter++;
-					$inPeriod = $counter < $payTotal - $lastPay;
-					echo "mark(\"" . $id . "\", " . $inPeriod . ");";
+					$className = "pink";
+					if($counter <= $payTotal - $lastPay){
+						$className = "lightGreen";
+					}
+					else if($counter <= $payTotal){
+							$className = "lightBlue";
+					}
+					echo "mark(\"" . $id . "\", \"" . $className . "\");";
 				}
 				echo "</script>";
 				if($_GET[showPay] == 'true'){
