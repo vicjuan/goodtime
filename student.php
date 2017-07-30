@@ -85,6 +85,12 @@
 						echo "</tbody>";
 						echo "</table>";
 					}
+					echo "<form method=\"POST\" action=\"pay.php\">";
+					echo "我今天要繳";
+					echo "<input type=\"text\" name=\"classes\">";
+					echo "堂課的錢";
+					echo "<input type=\"sumbit\" value=\"好\">";
+					echo "</form>";
 				}
 			?>
 		</center>
