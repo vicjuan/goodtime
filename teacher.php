@@ -9,7 +9,7 @@
 	<body bgcolor="#00BBBB">
 		<center>
 			<?
-				echo "<table border=\"1\">";
+				echo "<table>";
 				echo "<tr><th>學生姓名</th></tr>";
 				$result = mysql_query("select * from student");
 				if(mysql_num_rows($result)){
@@ -17,7 +17,7 @@
 						echo "<tr>";
 						echo "<td align=\"center\" style=\"height:50px; width:150px;\">";
 						echo "<form method=\"POST\" action=\"student.php\">";
-						echo "<input type=\"submit\" name=\"name\" style=\"width:100%; font-size:36;\" value=\"". $row[name] ."\">";
+						echo "<input type=\"submit\" name=\"name\" style=\"width:100%; font-size:36; background-color:white;\" value=\"". $row[name] ."\">";
 						echo "<input type=\"hidden\" name=\"id\" value=\"". $row[id] ."\">";
 						echo "<input type=\"hidden\" name=\"showPay\" value=\"true\">";
 						echo "</form>";
