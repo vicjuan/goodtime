@@ -21,7 +21,7 @@
 				echo "學生" . $_GET[name] . "的出席情形";
 				$calendars = [];
 				$ids = [];
-				$result = mysql_query("select unix_timestamp(date) as time from attend where student_id=$_GET[id]");
+				$result = mysql_query("select unix_timestamp(date) as time from attend where student_id=$_GET[id] order by time");
 				if(mysql_num_rows($result)){
 					while($row = mysql_fetch_array($result)){
 						$date = getdate($row[time]);
