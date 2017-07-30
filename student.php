@@ -89,7 +89,7 @@
 					echo "<form method=\"POST\" action=\"pay.php\">";
 					echo "我今天要繳";
 					echo "<input type=\"text\" name=\"classes\" style=\"width: 30px;\">";
-					echo "堂課的�<br>�";
+					echo "堂課的錢<br>";
 					echo "<input type=\"sumbit\" value=\"好\">";
 					echo "</form>";
 				}
