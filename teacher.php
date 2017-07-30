@@ -16,7 +16,11 @@
 					while($row = mysql_fetch_array($result)){
 						echo "<tr>";
 						echo "<td align=\"center\" style=\"height:50px; width:150px;\">";
-						echo "<a href=\"student.php?id=". $row[id] ."&name=". $row[name] ."&showPay=true\">". $row[name] ."</a>";
+						echo "<form method=\"POST\" action=\"student.php\">";
+						echo "<input type=\"submit\" name=\"name\" value=\"". $row[name] ."\">";
+						echo "<input type=\"hidden\" name=\"id\" value=\"". $row[id] ."\">";
+						echo "<input type=\"hidden\" name=\"showPay\" value=\"true\">";
+						echo "</form>";
 						echo "</td>";
 						echo "</tr>";
 					}
