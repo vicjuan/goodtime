@@ -18,10 +18,12 @@
 	<body bgcolor="#00BBBB">
 		<center>
 			<?
-				echo "學生" . $_GET[name] . "的出席情形";
+				$name = $_POST[name] ? $_POST[name] : $_GET[name];
+				$id = $_POST[id] ? $_POST[id] : $_GET[id];
+				echo "學生" . $name . "的出席情形";
 				$calendars = [];
 				$ids = [];
-				$result = mysql_query("select unix_timestamp(date) as time from attend where student_id=$_GET[id] order by time");
+				$result = mysql_query("select unix_timestamp(date) as time from attend where student_id=$id order by time");
 				if(mysql_num_rows($result)){
 					while($row = mysql_fetch_array($result)){
 						$date = getdate($row[time]);
@@ -43,11 +45,11 @@
 						echo $calendar;
 					}
 				}
-				$result = mysql_query("select sum(pay_class) as total from pay where student_id=$_GET[id]");
+				$result = mysql_query("select sum(pay_class) as total from pay where student_id=$id");
 				$payTotal = mysql_fetch_array($result)[total];
 				$lastPay = 0;
 				if($payTotal > count($ids)){
-					$result = mysql_query("select pay_class from pay where student_id=$_GET[id] order by time desc limit 1");
+					$result = mysql_query("select pay_class from pay where student_id=$id order by time desc limit 1");
 					$lastPay = mysql_fetch_array($result)[pay_class];	
 				}
 				echo "<script language=\"javascript\">";
@@ -64,9 +66,9 @@
 					echo "mark(\"" . $id . "\", \"" . $className . "\");";
 				}
 				echo "</script>";
-				if($_GET[showPay] == 'true'){
-					echo "學生" . $_GET[name] . "的繳費情形";
-					$result = mysql_query("select * from pay where student_id=$_GET[id] order by time desc");
+				if($_POST[showPay] == 'true'){
+					echo "學生" . $name . "的繳費情形";
+					$result = mysql_query("select * from pay where student_id=$id order by time desc");
 					if(mysql_num_rows($result)){
 						echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
 						echo "<tbody>";
