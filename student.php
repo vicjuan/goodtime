@@ -87,6 +87,7 @@
 					}
 					echo "<br><br>";
 					echo "<form method=\"POST\" action=\"pay.php\">";
+					echo "<input type=\"hidden\" name=\"id\" value=\"" . $studentId . "\"> ";
 					echo "我今天要繳 ";
 					echo "<input type=\"text\" name=\"classes\" style=\"width: 30px;\"> ";
 					echo "堂課的錢 ";
