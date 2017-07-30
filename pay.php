@@ -9,7 +9,7 @@
 	<body bgcolor="#00BBBB">
 		<center>
 			<?
-				$result = mysql_query("insert into pay (student_id, pay_class, date) values ('$_POST[id]', $_POST[classes], CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))");
+				$result = mysql_query("insert into pay (student_id, pay_class, time) values ('$_POST[id]', $_POST[classes], CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))");
 				if(!$result){
 					die('繳錢失敗' . mysql_error());
 				}
