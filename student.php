@@ -8,9 +8,14 @@
 		<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 	</head>
 	<script language="javascript">
-		var mark = function(id){
+		var mark = function(id, inPeriod){
 			var element = document.getElementById(id);
-			element.className += " lightblue";
+			if(inPeriod){
+				element.className += " lightblue";
+			}
+			else{
+				element.className += " pink";
+			}
 			var countDiv = element.getElementsByClassName("count-number")[0];
 			countDiv.innerText += "O ";
 		}
@@ -43,9 +48,17 @@
 						echo $calendar;
 					}
 				}
+				$result = mysql_query("select sum(pay_class) as total from pay where student_id=$_GET[id]");
+				$payTotal = mysql_fetch_array($result)[total];
+				$result = mysql_query("select pay_class from pay where student_id=$_GET[id] order by time desc limit 1");
+				$lastPay = mysql_fetch_array($result)[pay_class];
+				
 				echo "<script language=\"javascript\">";
+				$counter = 0;
 				foreach($ids as $id){
-					echo "mark(\"" . $id . "\");";
+					$counter++;
+					$inPeriod = $counter < $payTotal - $lastPay;
+					echo "mark(\"" . $id . "\", " . $inPeriod . ");";
 				}
 				echo "</script>";
 				if($_GET[showPay] == 'true'){
