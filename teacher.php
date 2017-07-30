@@ -16,7 +16,7 @@
 					while($row = mysql_fetch_array($result)){
 						echo "<tr>";
 						echo "<td align=\"center\" style=\"height:50px; width:150px;\">";
-						echo "<a href=\"student.php?id=". $row[id] ."&name=". $row[name] ."\">". $row[name] ."</a>";
+						echo "<a href=\"student.php?id=". $row[id] ."&name=". $row[name] ."&showPay=true\">". $row[name] ."</a>";
 						echo "</td>";
 						echo "</tr>";
 					}
