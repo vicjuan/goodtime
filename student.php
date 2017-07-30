@@ -88,9 +88,8 @@
 					echo "<br><br>";
 					echo "<form method=\"POST\" action=\"pay.php\">";
 					echo "我今天要繳";
-					echo "<input type=\"text\" name=\"classes\" style=\"width: 30px;\">";
-					echo "堂課的錢<br><br>";
-					echo "<input type=\"sumbit\" value=\"好\" style=\"text-align:center; background:white; height: 50px; width: 50px; font-size: 36;\">";
+					echo "<input type=\"text\" name=\"classes\" style=\"width: 30px;\"> ";
+					echo "<input type=\"sumbit\" value=\"繳費\" style=\"text-align:center; background:white; height: 20px; width: 50px; font-size: 16;\">";
 					echo "</form>";
 				}
 			?>
