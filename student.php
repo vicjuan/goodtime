@@ -50,7 +50,7 @@
 				echo "</script>";
 				if($_GET[showPay] == 'true'){
 					echo "學生" . $_GET[name] . "的繳費情形";
-					$result = mysql_query("select * from pay where student_id=$_GET[id]");
+					$result = mysql_query("select * from pay where student_id=$_GET[id] order by time desc");
 					if(mysql_num_rows($result)){
 						echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
 						echo "<tbody>";
