@@ -109,7 +109,7 @@
 ?>
 	<script language="javascript">
 		var addLink = function (element){
-			window.location.assign("edit_record.php?id=" + <?=$studentId?> + "&date=" + element.id);
+			window.location.assign("record_edit.php?id=" + <?=$studentId?> + "&date=" + element.id);
 		}
 		var elements = document.getElementsByClassName("calendar-day");
 		for(var i = 0; i < elements.length; i++){
