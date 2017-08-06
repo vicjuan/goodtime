@@ -9,7 +9,7 @@
 	<body bgcolor="#00BBBB">
 		<center>
 			<?
-				$result = mysql_query("insert into attend (student_id, date) values ('$_POST[id]', '$_POST[date]'))");
+				$result = mysql_query("insert into attend (student_id, date) values ('$_POST[id]', '$_POST[date]')");
 				if(!$result){
 					die('點名失敗' . mysql_error());
 				}
