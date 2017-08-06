@@ -14,6 +14,7 @@
 				if(mysql_num_rows($result)){
 					$row = mysql_fetch_array($result);
 					echo "<form method=\"POST\" action=\"pay_edit_handle.php\">";
+					echo "<input type=\"hidden\" name=\"id\" value=\"" . $_POST[id] . "\">";
 					echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
 					echo "<tbody>";
 					echo "<tr class=\"calendar-row\">";
