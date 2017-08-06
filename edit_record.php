@@ -11,10 +11,12 @@
 		<center>
 			<?
 				$tok = strtok($_GET['date'], "_");
-				while($tok !== false){
-					echo $tok;
-					$tok = strtok("_");
-				}
+				$year = strtok("_");
+				$month = strtok("_");
+				$day = strtok("_");
+				$date = $year . "-" . $month . "-" . $day;
+				echo "select * from attend where student_id=$_GET[id] and unix_timestamp(time) >= unix_timestamp($date) and unix_timestamp(time) < unix_timestamp($date) + 86400";
+				$result = mysql_query("select * from attend where student_id=$_GET[id] and unix_timestamp(time) >= unix_timestamp($date) and unix_timestamp(time) < unix_timestamp($date) + 86400");
 			?>
 		</center>
 	</body>
