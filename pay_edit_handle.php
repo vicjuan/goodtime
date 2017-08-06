@@ -9,7 +9,12 @@
 	<body bgcolor="#00BBBB">
 		<center>
 			<?
-				$result = mysql_query("update pay set pay_class=$_POST[class], time=\"$_POST[time]\" where id=$_POST[id]");
+				if($_POST[class] <= 0){
+					$result = mysql_query("delete from pay where id=$_POST[id]");
+				}
+				else{
+					$result = mysql_query("update pay set pay_class=$_POST[class], time=\"$_POST[time]\" where id=$_POST[id]");
+				}
 				if(!$result){
 					die('修改失敗' . mysql_error());
 				}
