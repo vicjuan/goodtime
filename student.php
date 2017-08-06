@@ -80,6 +80,12 @@
 							echo "<tr>";
 							echo "<td class=\"calendar-day\" style=\"text-align: center;\">" . $row[pay_class] . "</td>";
 							echo "<td class=\"calendar-day\" style=\"width: initial;\">" . $row[time] . "</td>";
+							echo "<form method=\"POST\" action=\"pay_edit.php\">";
+							echo "<td class=\"calendar-day\">";
+							echo "<input type=\"submit\" value=\"修改紀錄\">";
+							echo "<input type=\"hidden\" name=\"id\" value=\"" . $row[id] . "\">";
+							echo "</td>";
+							echo "</form>";
 							echo "</tr>";
 						}
 						echo "</tbody>";
