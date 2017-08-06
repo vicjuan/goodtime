@@ -9,7 +9,7 @@
 	<body bgcolor="#00BBBB">
 		<center>
 			<?
-				if($_POST[class] <= 0){
+				if($_POST['class'] <= 0){
 					$result = mysql_query("delete from pay where id=$_POST[id]");
 					if(!$result){
 						die('刪除失敗' . mysql_error());
