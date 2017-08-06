@@ -1,5 +1,6 @@
 <?
 	include("connect.php");
+	include("calendar.php");
 ?>
 <html>
 	<head>
@@ -10,7 +11,7 @@
 		<center>
 			<?
 				$result = mysql_query("select * from pay where id=$_POST[id]");
-				if(mysql_num_rows($result){
+				if(mysql_num_rows($result)){
 					$row = mysql_fetch_array($result);
 					echo "<form method=\"POST\" action=\"pay_edit_handle.php\">";
 					echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
@@ -27,7 +28,7 @@
 					echo "<td class=\"calendar-day\" style=\"width: initial;\">";
 					echo "<input type=\"text\" name=\"time\" value=\"" . $row[time] . "\">";
 					echo "</td>";
-					echo "<td class=\"calendar-day\" style=\"width: initial;\">";
+					echo "<td class=\"calendar-day\" style=\"text-align: center;\">";
 					echo "<input type=\"submit\" value=\"送出\">";
 					echo "</td>";
 					echo "</tr>";
