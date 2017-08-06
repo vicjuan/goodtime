@@ -37,7 +37,8 @@
 						echo "<input type=\"text\" name=\"date\" value=\"" . $row[date] . "\">";
 						echo "</td>";
 						echo "<td class=\"calendar-day\" style=\"text-align: center;\">";
-						echo "<input type=\"submit\" value=\"送出\">";
+						echo "<input type=\"submit\" name=\"action\" value=\"edit\">";
+						echo "<input type=\"submit\" name=\"action\" value=\"delete\">";
 						echo "</td>";
 						echo "</tr>";
 					}
@@ -45,6 +46,12 @@
 					echo "</table>";
 					echo "</form>";
 				}
+				echo "<form method=\"POST\" action=\"add_checkin.php\">";
+				echo "我要在這一天新增點名";
+				echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\">";
+				echo "<input type=\"hidden\" name=\"date\" value=\"" . $date . ">";
+				echo "<input type=\"submit\" value=\"新增\">";
+				echo "</form>";
 			?>
 		</center>
 	</body>
