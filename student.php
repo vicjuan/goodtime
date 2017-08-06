@@ -79,10 +79,10 @@
 						echo "</tr>";
 						while($row = mysql_fetch_array($result)){
 							echo "<tr>";
-							echo "<td class=\"calendar-day\" style=\"text-align: center;\">" . $row[pay_class] . "</td>";
-							echo "<td class=\"calendar-day\" style=\"width: initial;\">" . $row[time] . "</td>";
+							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">" . $row[pay_class] . "</td>";
+							echo "<td class=\"calendar-day-np\" style=\"width: initial;\">" . $row[time] . "</td>";
 							echo "<form method=\"POST\" action=\"pay_edit.php\">";
-							echo "<td class=\"calendar-day\" style=\"text-align: center;\">";
+							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
 							echo "<input type=\"submit\" value=\"修改紀錄\">";
 							echo "<input type=\"hidden\" name=\"id\" value=\"" . $row[id] . "\">";
 							echo "</td>";
@@ -104,4 +104,19 @@
 			?>
 		</center>
 	</body>
+<?
+	if($_POST[showPay] == 'true'){
+?>
+	<script language="javascript">
+		var addLink = function (element){
+			window.location.assign("edit_record.php?id=" + <?=$studentId?> + "&date=" + element.id);
+		}
+		var elements = document.getElementsByClassName("calendar-day");
+		for(var i = 0; i < elements.length; i++){
+			elements[i].addEventListener("click", function(){addLink(this);}, false);
+		}
+	</script>
+<?
+	}
+?>
 </html>
