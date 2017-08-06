@@ -49,7 +49,7 @@
 				echo "<form method=\"POST\" action=\"add_checkin.php\">";
 				echo "我要在這一天新增點名";
 				echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\">";
-				echo "<input type=\"hidden\" name=\"date\" value=\"" . $date . ">";
+				echo "<input type=\"hidden\" name=\"date\" value=\"" . $date . "\">";
 				echo "<input type=\"submit\" value=\"新增\">";
 				echo "</form>";
 			?>
