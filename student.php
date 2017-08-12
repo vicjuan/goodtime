@@ -20,7 +20,7 @@
 			<?
 				$name = $_POST[name] ? $_POST[name] : $_GET[name];
 				$studentId = $_POST[id] ? $_POST[id] : $_GET[id];
-				echo "學生" . $name . "的出席情形";
+				echo "學生" . $name . "的出席情形<br>";
 				$calendars = [];
 				$ids = [];
 				$result = mysql_query("select unix_timestamp(date) as time from attend where student_id=$studentId order by time");
