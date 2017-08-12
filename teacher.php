@@ -38,7 +38,7 @@
 						<td><input type="text" name="phone"></td>
 					</tr>
 				</table>
-				<input type="submit" name="新增">
+				<input type="submit" value="新增">
 			</form>
 		</center>
 	</body>
