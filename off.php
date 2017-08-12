@@ -11,13 +11,8 @@
 		<script>
 			var myCalendar;
 			function doOnLoad() {
-				var today = new Date();
-				var dd = today.getDate();
-				var mm = today.getMonth() + 1;
-				var yyyy = today.getFullYear();
-				var date = yyyy + "-" + mm + "-" + dd;
 				myCalendar = new dhtmlXCalendarObject({input: "calendar_input", button: "calendar_icon"});
-				myCalendar.setSensitiveRange(date, null);
+				myCalendar.setSensitiveRange(new Date(), null);
 			}
 		</script>
 		<style>
