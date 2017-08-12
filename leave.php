@@ -31,7 +31,7 @@
 	<body bgcolor="#00BBBB" onload="doOnLoad();">
 		<center>
 			<?=$_POST[name]?>想要哪一天請假?<Br>
-			<form method="POST" action="off_handle.php">
+			<form method="POST" action="leave_handle.php">
 				<input type="text" id="calendar_input" name="date">
 				<input type="hidden" name="id" value="<?=$_POST[id]?>">
 				<span><img id="calendar_icon" src="calendar.png" border="0"></span><br>
