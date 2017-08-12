@@ -14,7 +14,7 @@
 					echo "你已經在" . $_POST[date] . "這一天請假過了！";
 				}
 				else {
-					$result = mysql_query("insert into leave (student_id, date, checked) values ('$_POST[id]', '$_POST[date]', '0')");
+					$result = mysql_query("insert into `leave` (`student_id`, `date`) values ('$_POST[id]', '$_POST[date]')");
 					if(!$result){
 						die('請假失敗' . mysql_error());
 					}
