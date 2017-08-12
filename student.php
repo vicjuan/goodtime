@@ -67,7 +67,7 @@
 				}
 				echo "</script>";
 				if($_POST[showPay] == 'true'){
-					echo "學生" . $name . "的繳費情形";
+					echo "<hr>學生" . $name . "的繳費情形";
 					$result = mysql_query("select * from pay where student_id=$studentId order by time desc");
 					if(mysql_num_rows($result)){
 						echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
