@@ -15,7 +15,7 @@
 			myCalendar = new dhtmlXCalendarObject({input: "calendar_input", button: "calendar_icon"});
 		}
 	</script>
-	<body bgcolor="#00BBBB">
+	<body bgcolor="#00BBBB" onload="doOnLoad();">
 		<center>
 			想要哪一天請假?<Br>
 			<form method="POST" action="off_handle.php">
