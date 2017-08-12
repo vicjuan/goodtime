@@ -20,6 +20,7 @@
 			想要哪一天請假?<Br>
 			<form method="POST" action="off_handle.php">
 				<input type="text" id="calendar_input">
+				<span><img id="calendar_icon" src="calendar.png" border="0"></span><br>
 				<input type="submit" value="請假">
 			</form>
 		</center>
