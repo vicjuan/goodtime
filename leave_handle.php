@@ -9,7 +9,7 @@
 	<body bgcolor="#00BBBB">
 		<center>
 			<?
-				$result = mysql_query("select * from leave where student_id='$_POST[id]' and date='$_POST[date]'");
+				$result = mysql_query("select * from `leave` where student_id='$_POST[id]' and date='$_POST[date]'");
 				if(mysql_num_rows($result)){
 					echo "你已經在" . $_POST[date] . "這一天請假過了！";
 				}
