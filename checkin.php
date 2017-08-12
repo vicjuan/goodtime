@@ -26,6 +26,7 @@
 						die('點名失敗' . mysql_error());
 					}
 					echo $_POST[name]."點名成功！<br>";
+					echo "<a href=\"checkin.html\">回到點名首頁</a>";
 					echo "<iframe src=\"student.php?id=".$_POST[id]."&name=".$_POST[name]."\" width=800 height=800 style=\"border:0\"></iframe>";
 				}
 			?>
