@@ -40,6 +40,7 @@
 				</table>
 				<input type="submit" value="新增">
 			</form>
+			<br><a href=\"checkin.html\">進入點名首頁</a><br>
 		</center>
 	</body>
 </html>
