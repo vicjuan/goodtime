@@ -27,6 +27,19 @@
 				}
 				echo "</table>";
 			?>
+			新增學生<br>
+			<form method="POST" action="new_student.php">
+				<table>
+					<tr>
+						<th>姓名</th><th>爸爸媽媽電話</th>
+					</tr>
+					<tr>
+						<td><input type="text" name="name"></td>
+						<td><input type="text" name="phone"></td>
+					</tr>
+				</table>
+				<input type="submit" name="新增">
+			</form>
 		</center>
 	</body>
 </html>
