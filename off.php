@@ -8,13 +8,25 @@
 		<link rel="stylesheet" type="text/css" href="dgtmlxCalendar/fonts/font_roboto/roboto.css"/>
 		<link rel="stylesheet" type="text/css" href="dgtmlxCalendar/dhtmlxcalendar.css"/>
 		<script src="dgtmlxCalendar/dhtmlxcalendar.js"></script>
+		<script>
+			var myCalendar;
+			function doOnLoad() {
+				myCalendar = new dhtmlXCalendarObject({input: "calendar_input", button: "calendar_icon"});
+			}
+		</script>
+		<style>
+			#calendar_input {
+				border: 1px solid #dfdfdf;
+				font-family: Roboto, Arial, Helvetica;
+				font-size: 14px;
+				color: #404040;
+			}
+			#calendar_icon {
+				vertical-align: middle;
+				cursor: pointer;
+			}
+		</style>
 	</head>
-	<script>
-		var myCalendar;
-		function doOnLoad() {
-			myCalendar = new dhtmlXCalendarObject({input: "calendar_input", button: "calendar_icon"});
-		}
-	</script>
 	<body bgcolor="#00BBBB" onload="doOnLoad();">
 		<center>
 			想要哪一天請假?<Br>
