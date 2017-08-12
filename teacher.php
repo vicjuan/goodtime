@@ -35,7 +35,7 @@
 					</tr>
 					<tr>
 						<td><input type="text" name="name"></td>
-						<td><input type="text" name="phone"></td>
+						<td><input type="text" name="number"></td>
 					</tr>
 				</table>
 				<input type="submit" value="新增">

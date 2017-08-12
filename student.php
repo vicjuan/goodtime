@@ -100,6 +100,7 @@
 					echo "堂課的錢 ";
 					echo "<input type=\"submit\" value=\"繳費\" style=\"text-align:center; background:white; height: 30px; width: 50px; font-size: 16;\">";
 					echo "</form>";
+					echo "<a href=\"teacher.php\">回到老師首頁</a>";
 				}
 			?>
 		</center>
