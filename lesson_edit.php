@@ -35,7 +35,7 @@
 						echo "<select name=\"day\">";
 						for($index = 0; $index < 7; $index++){
 							echo "<option value=\"". $index . "\" ";
-							if($index == $row[day]){
+							if($index == $row['day']){
 								echo "selected";
 							}
 							echo ">";
@@ -67,19 +67,19 @@
 						echo "</select> ";
 						echo "</td>";
 						echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
-						echo "<select name=\"period\" selected=\"". $_POST[period] ."\">";
+						echo "<select name=\"period\" >";
 						echo "<option value=\"MORNING\" ";
-						if($row[period] == 'MORNING'){
+						if($row['period'] == 'MORNING'){
 							echo "selected";
 						}
 						echo ">早上</option>";
 						echo "<option value=\"AFTERNOON\" ";
-						if($row[period] == 'AFTERNOON'){
+						if($row['period'] == 'AFTERNOON'){
 							echo "selected";
 						}
 						echo ">下午</option>";
 						echo "<option value=\"NIGHT\" ";
-						if($row[period] == 'NIGHT'){
+						if($row['period'] == 'NIGHT'){
 							echo "selected";
 						}
 						echo ">晚上</option>";
