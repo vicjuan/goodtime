@@ -167,7 +167,7 @@
 					echo "<br><br>";
 					echo "<form method=\"POST\" action=\"lesson.php\">";
 					echo "<input type=\"hidden\" name=\"id\" value=\"" . $studentId . "\"> ";
-					echo "新增課程";
+					echo "新增課程 ";
 					echo "<select name=\"day\">";
 					echo "<option value=\"0\">星期天</option>";
 					echo "<option value=\"1\">星期一</option>";
@@ -176,12 +176,13 @@
 					echo "<option value=\"4\">星期四</option>";
 					echo "<option value=\"5\">星期五</option>";
 					echo "<option value=\"6\">星期六</option>";
-					echo "</select>";
+					echo "</select> ";
 					echo "<select name=\"period\">";
 					echo "<option value=\"MORNING\">早上</option>";
 					echo "<option value=\"AFTERNOON\">下午</option>";
 					echo "<option value=\"NIGHT\">晚上</option>";
-					echo "</select>";
+					echo "</select> ";
+					echo "<input type=\"submit\" value=\"新增\">";
 					echo "</form>";
 					
 					echo "<a href=\"teacher.php\">回到老師首頁</a>";
