@@ -140,7 +140,7 @@
 									break;
 							}
 							echo "</td>";
-							echo "<td class=\"calendar-day-np\" style=\"width: initial;\">";
+							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
 							switch($row[period]){
 								case 'MORNING':
 									echo "早上";
