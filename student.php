@@ -67,6 +67,7 @@
 				}
 				echo "</script>";
 				if($_POST[showPay] == 'true'){
+					// 繳費
 					echo "<hr>學生" . $name . "的繳費情形";
 					$result = mysql_query("select * from pay where student_id=$studentId order by time desc");
 					if(mysql_num_rows($result)){
@@ -100,6 +101,89 @@
 					echo "堂課的錢 ";
 					echo "<input type=\"submit\" value=\"繳費\" style=\"text-align:center; background:white; height: 30px; width: 50px; font-size: 16;\">";
 					echo "</form>";
+					
+					// 固定上課日
+					echo "<hr>學生" . $name . "的上課日期";
+					$result = mysql_query("select * from lesson where student_id=$studentId");
+					if(mysql_num_rows($result)){
+						echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
+						echo "<tbody>";
+						echo "<tr class=\"calendar-row\">";
+						echo "<td class=\"calendar-day-head\">星期</th>";
+						echo "<td class=\"calendar-day-head\">時段</th>";
+						echo "<td class=\"calendar-day-head\">修改</th>";
+						echo "</tr>";
+						while($row = mysql_fetch_array($result)){
+							echo "<tr>";
+							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
+							switch($row[day]){
+								case 0:
+									echo "星期天";
+									break;
+								case 1:
+									echo "星期一";
+									break;
+								case 2:
+									echo "星期二";
+									break;
+								case 3:
+									echo "星期三";
+									break;
+								case 4:
+									echo "星期四";
+									break;
+								case 5:
+									echo "星期五";
+									break;
+								case 6:
+									echo "星期六";
+									break;
+							}
+							echo "</td>";
+							echo "<td class=\"calendar-day-np\" style=\"width: initial;\">";
+							switch($row[period]){
+								case 'MORNING':
+									echo "早上";
+									break;
+								case 'AFTERNOON':
+									echo "下午";
+									break;
+								case 'NIGHT':
+									echo "晚上";
+									break;
+							}
+							echo "</td>";
+							echo "<form method=\"POST\" action=\"lesson_edit.php\">";
+							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
+							echo "<input type=\"submit\" value=\"修改\">";
+							echo "<input type=\"hidden\" name=\"id\" value=\"" . $row[id] . "\">";
+							echo "</td>";
+							echo "</form>";
+							echo "</tr>";
+						}
+						echo "</tbody>";
+						echo "</table>";
+					}
+					echo "<br><br>";
+					echo "<form method=\"POST\" action=\"lesson.php\">";
+					echo "<input type=\"hidden\" name=\"id\" value=\"" . $studentId . "\"> ";
+					echo "新增課程";
+					echo "<select name=\"day\">";
+					echo "<option value=\"0\">星期天</option>";
+					echo "<option value=\"1\">星期一</option>";
+					echo "<option value=\"2\">星期二</option>";
+					echo "<option value=\"3\">星期三</option>";
+					echo "<option value=\"4\">星期四</option>";
+					echo "<option value=\"5\">星期五</option>";
+					echo "<option value=\"6\">星期六</option>";
+					echo "</select>";
+					echo "<select name=\"period\">";
+					echo "<option value=\"MORNING\">早上</option>";
+					echo "<option value=\"AFTERNOON\">下午</option>";
+					echo "<option value=\"NIGHT\">晚上</option>";
+					echo "</select>";
+					echo "</form>";
+					
 					echo "<a href=\"teacher.php\">回到老師首頁</a>";
 				}
 			?>
