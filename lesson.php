@@ -14,7 +14,7 @@
 					echo "該時段已參加過了";
 				}
 				else{
-					$result = mysql_query("insert into lesson (student_id, day, period) values ('$_POST[id]', $_POST[day], $_POST[period]");
+					$result = mysql_query("insert into lesson (student_id, day, period) values ('$_POST[id]', '$_POST[day]', '$_POST[period]')");
 					if(!$result){
 						die('新增失敗' . mysql_error());
 					}
