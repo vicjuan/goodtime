@@ -74,9 +74,9 @@
 						echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
 						echo "<tbody>";
 						echo "<tr class=\"calendar-row\">";
-						echo "<td class=\"calendar-day-head\">堂數</th>";
-						echo "<td class=\"calendar-day-head\">繳費日期</th>";
-						echo "<td class=\"calendar-day-head\">修改</th>";
+						echo "<td class=\"calendar-day-head\">堂數</td>";
+						echo "<td class=\"calendar-day-head\">繳費日期</td>";
+						echo "<td class=\"calendar-day-head\">修改</td>";
 						echo "</tr>";
 						while($row = mysql_fetch_array($result)){
 							echo "<tr>";
@@ -109,9 +109,10 @@
 						echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
 						echo "<tbody>";
 						echo "<tr class=\"calendar-row\">";
-						echo "<td class=\"calendar-day-head\">星期</th>";
-						echo "<td class=\"calendar-day-head\">時段</th>";
-						echo "<td class=\"calendar-day-head\">修改</th>";
+						echo "<td class=\"calendar-day-head\">星期</td>";
+						echo "<td class=\"calendar-day-head\">時段</td>";
+						echo "<td class=\"calendar-day-head\">修改</td>";
+						echo "<td class=\"calendar-day-head\">刪除</td>";
 						echo "</tr>";
 						while($row = mysql_fetch_array($result)){
 							echo "<tr>";
@@ -154,9 +155,12 @@
 							}
 							echo "</td>";
 							echo "<form method=\"POST\" action=\"lesson_edit.php\">";
-							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
-							echo "<input type=\"submit\" value=\"修改\">";
 							echo "<input type=\"hidden\" name=\"id\" value=\"" . $row[id] . "\">";
+							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
+							echo "<input type=\"submit\" name=\"mode\" value=\"edit\">";
+							echo "</td>";
+							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
+							echo "<input type=\"submit\" name=\"mode\" value=\"delete\">";
 							echo "</td>";
 							echo "</form>";
 							echo "</tr>";

@@ -11,7 +11,7 @@
 			<?
 				$result = mysql_query("select * from lesson where student_id='$_POST[id]' and day='$_POST[day]' and period='$_POST[period]'");
 				if(mysql_num_rows($result)){
-					echo "該時段已參加過了";
+					echo "該時段已參加過了<br>";
 				}
 				else{
 					$result = mysql_query("insert into lesson (student_id, day, period) values ('$_POST[id]', '$_POST[day]', '$_POST[period]')");
