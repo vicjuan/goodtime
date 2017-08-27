@@ -32,45 +32,25 @@
 						echo "</tr>";
 						echo "<tr>";
 						echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
-						switch($row[day]){
-							case 0:
-								echo "星期天";
-								break;
-							case 1:
-								echo "星期一";
-								break;
-							case 2:
-								echo "星期二";
-								break;
-							case 3:
-								echo "星期三";
-								break;
-							case 4:
-								echo "星期四";
-								break;
-							case 5:
-								echo "星期五";
-								break;
-							case 6:
-								echo "星期六";
-								break;
-						}
+						echo "<select name=\"day\" selected=\"". $_POST[day] ."\">";
+						echo "<option value=\"0\">星期天</option>";
+						echo "<option value=\"1\">星期一</option>";
+						echo "<option value=\"2\">星期二</option>";
+						echo "<option value=\"3\">星期三</option>";
+						echo "<option value=\"4\">星期四</option>";
+						echo "<option value=\"5\">星期五</option>";
+						echo "<option value=\"6\">星期六</option>";
+						echo "</select> ";
 						echo "</td>";
 						echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
-						switch($row[period]){
-							case 'MORNING':
-								echo "早上";
-								break;
-							case 'AFTERNOON':
-								echo "下午";
-								break;
-							case 'NIGHT':
-								echo "晚上";
-								break;
-						}
+						echo "<select name=\"period\" selected=\"". $_POST[period] ."\">";
+						echo "<option value=\"MORNING\">早上</option>";
+						echo "<option value=\"AFTERNOON\">下午</option>";
+						echo "<option value=\"NIGHT\">晚上</option>";
+						echo "</select> ";
 						echo "</td>";
 						echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
-						echo "<input type=\"submit\" value=\修改\">";
+						echo "<input type=\"submit\" value=\"修改\">";
 						echo "</td>";
 						echo "</tbody>";
 						echo "</table>";
