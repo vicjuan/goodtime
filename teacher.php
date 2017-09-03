@@ -76,17 +76,21 @@
 			<table cellpadding="0" cellspacing="0"  class="calendar">
 				<tbody>
 					<tr class="calendar-row">
-						<td class="calendar-day-head">
-							<?
-								$result = mysql_query("select * from student s left join `leave` l on s.id=l.student_id where l.date >= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) and l.date <= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) + interval 7 day");
-								if(mysql_num_rows($result)){
-									while($row = mysql_fetch_array($result)){
-										echo $row[name];
-										echo "<br>";
-									}
+						<?
+							$result = mysql_query("select * from student s left join `leave` l on s.id=l.student_id where l.date >= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) and l.date <= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) + interval 7 day");
+							if(mysql_num_rows($result)){
+								while($row = mysql_fetch_array($result)){
+									echo "<td class=\"calendar-day-head\">";
+									echo $row[name];
+									echo "<br>";
+									echo "</td>";
+									echo "<td class=\"calendar-day-head\">";
+									echo $row[date];
+									echo "<br>";
+									echo "</td>";
 								}
-							?>
-						</td>
+							}
+						?>
 					</tr>
 				</tbody>
 			</table>
