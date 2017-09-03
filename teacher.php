@@ -54,6 +54,42 @@
 					</tr>
 				</tbody>
 			</table>
+			<br>本日請假學生
+			<table cellpadding="0" cellspacing="0"  class="calendar">
+				<tbody>
+					<tr class="calendar-row">
+						<td class="calendar-day-head">
+							<?
+								$result = mysql_query("select * from `leave` where `date` = date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))");
+								if(mysql_num_rows($result)){
+									while($row = mysql_fetch_array($result)){
+										echo $row[name];
+										echo "<br>";
+									}
+								}
+							?>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br>未來七天請假學生
+			<table cellpadding="0" cellspacing="0"  class="calendar">
+				<tbody>
+					<tr class="calendar-row">
+						<td class="calendar-day-head">
+							<?
+								$result = mysql_query("select * from `leave` where `date` >= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) and `date` <= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) + interval 7 day");
+								if(mysql_num_rows($result)){
+									while($row = mysql_fetch_array($result)){
+										echo $row[name];
+										echo "<br>";
+									}
+								}
+							?>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 			<table>
 			<tr><th>學生姓名</th></tr>
 			<?
