@@ -24,33 +24,29 @@
 								if(mysql_num_rows($result)){
 									while($row = mysql_fetch_array($result)){
 										echo $row[name];
-										echo " ";
+										echo "<br>";
 									}
 								}
 							?>
 						</td>
-					</tr>
-					<tr class="calendar-row">
 						<td class="calendar-day-head">
 							<?
 								$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='AFTERNOON'");
 								if(mysql_num_rows($result)){
 									while($row = mysql_fetch_array($result)){
 										echo $row[name];
-										echo " ";
+										echo "<br>";
 									}
 								}
 							?>
 						</td>
-					</tr>
-					<tr class="calendar-row">
 						<td class="calendar-day-head">
 							<?
 								$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='NIGHT'");
 								if(mysql_num_rows($result)){
 									while($row = mysql_fetch_array($result)){
 										echo $row[name];
-										echo " ";
+										echo "<br>";
 									}
 								}
 							?>
