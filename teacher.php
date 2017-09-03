@@ -8,9 +8,46 @@
 	</head>
 	<body bgcolor="#00BBBB">
 		<center>
+			本日預計上課學生
+			<table>
+			<tr><th>早上</th><th>下午</th><th>晚上</th></tr>
+			<tr><td>
 			<?
-				echo "<table>";
-				echo "<tr><th>學生姓名</th></tr>";
+				$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='MORNING'");
+				if(mysql_num_rows($result)){
+					while($row = mysql_fetch_array($result)){
+						echo $row[name];
+						echo " ";
+					}
+				}
+			?>
+			</td></tr>
+			<tr><td>
+			<?
+				$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='AFTERNOON'");
+				if(mysql_num_rows($result)){
+					while($row = mysql_fetch_array($result)){
+						echo $row[name];
+						echo " ";
+					}
+				}
+			?>
+			</td></tr>
+			<tr><td>
+			<?
+				$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='NIGHT'");
+				if(mysql_num_rows($result)){
+					while($row = mysql_fetch_array($result)){
+						echo $row[name];
+						echo " ";
+					}
+				}
+			?>
+			</td></tr>
+			</table>
+			<table>
+			<tr><th>學生姓名</th></tr>
+			<?
 				$result = mysql_query("select * from student");
 				if(mysql_num_rows($result)){
 					while($row = mysql_fetch_array($result)){
@@ -25,8 +62,8 @@
 						echo "</tr>";
 					}
 				}
-				echo "</table>";
 			?>
+			</table>
 			新增學生<br>
 			<form method="POST" action="new_student.php">
 				<table>
