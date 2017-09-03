@@ -60,7 +60,7 @@
 					<tr class="calendar-row">
 						<td class="calendar-day-head">
 							<?
-								$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.date = date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))");
+								$result = mysql_query("select * from student s left join leave l on s.id=l.student_id where l.date = date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))");
 								if(mysql_num_rows($result)){
 									while($row = mysql_fetch_array($result)){
 										echo $row[name];
@@ -78,7 +78,7 @@
 					<tr class="calendar-row">
 						<td class="calendar-day-head">
 							<?
-								$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.date >= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) and l.date <= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) + interval 7 day");
+								$result = mysql_query("select * from student s left join leave l on s.id=l.student_id where l.date >= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) and l.date <= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) + interval 7 day");
 								if(mysql_num_rows($result)){
 									while($row = mysql_fetch_array($result)){
 										echo $row[name];
