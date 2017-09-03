@@ -75,23 +75,23 @@
 			<br>未來七天請假學生
 			<table cellpadding="0" cellspacing="0"  class="calendar">
 				<tbody>
-					<tr class="calendar-row">
-						<?
-							$result = mysql_query("select * from student s left join `leave` l on s.id=l.student_id where l.date >= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) and l.date <= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) + interval 7 day");
-							if(mysql_num_rows($result)){
-								while($row = mysql_fetch_array($result)){
-									echo "<td class=\"calendar-day-head\">";
-									echo $row[name];
-									echo "<br>";
-									echo "</td>";
-									echo "<td class=\"calendar-day-head\">";
-									echo $row[date];
-									echo "<br>";
-									echo "</td>";
-								}
+					<?
+						$result = mysql_query("select * from student s left join `leave` l on s.id=l.student_id where l.date >= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) and l.date <= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) + interval 7 day");
+						if(mysql_num_rows($result)){
+							while($row = mysql_fetch_array($result)){
+								echo "<tr class=\"calendar-row\">";
+								echo "<td class=\"calendar-day-head\">";
+								echo $row[name];
+								echo "<br>";
+								echo "</td>";
+								echo "<td class=\"calendar-day-head\">";
+								echo $row[date];
+								echo "<br>";
+								echo "</td>";
+								echo "</tr>";
 							}
-						?>
-					</tr>
+						}
+					?>
 				</tbody>
 			</table>
 			<table>
