@@ -309,7 +309,7 @@
 	#header-wrapper
 	{
 		overflow: hidden;
-		background: #2056ac;
+		background: #00BBBB;
 	}
 
 	#header
@@ -323,7 +323,7 @@
 
 	#logo
 	{
-		padding: 8em 0em 4em 0em;
+		padding: 4em 0em 2em 0em;
 	}
 	
 	#logo h1
@@ -450,7 +450,7 @@
 	{
 		overflow: hidden;
 		width: 1000px;
-		padding: 6em 100px 0em 100px;
+		padding: 3em 100px 0em 100px;
 		text-align: center;
 	}
 	
@@ -549,7 +549,7 @@
 	#copyright
 	{
 		overflow: hidden;
-		padding: 5em 0em;
+		padding: 2em 0em;
 		border-top: 20px solid rgba(255,255,255,0.08);
 		text-align: center;
 	}
