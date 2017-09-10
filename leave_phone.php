@@ -46,7 +46,7 @@ Released   : 20140322
 					echo "<form method=\"POST\" action=\"leave.php\">";
 					echo "<input type=\"hidden\" name=\"id\" value=\"".$row['id']."\">";
 					echo "<input type=\"hidden\" name=\"name\" value=\"".$row['name']."\">";
-					echo "<input type=\"submit\" class=\"button\" style=\"width:200px; height:75px; background-color:white; margin: 4px 2px; font-size:36; border:0;\" value=\"".$row['name']."\"><br>";
+					echo "<input type=\"submit\" class=\"button\" style=\"border:0;\" value=\"".$row['name']."\"><br>";
 					echo "</form>";
 				}
 			}
