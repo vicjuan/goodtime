@@ -1,6 +1,4 @@
 <?
-	include("connect.php");
-	include("calendar.php");
 	include("student_calendar.php");
 ?>
 <html>
@@ -11,14 +9,12 @@
 	<body bgcolor="#00BBBB">
 		<center>
 			<?
-				$name = $_POST[name] ? $_POST[name] : $_GET[name];
-				$studentId = $_POST[id] ? $_POST[id] : $_GET[id];
 				echo "學生" . $_GET[name] . "的出席情形<br>";
 				student_calendar($_GET[name], $_GET[id]);
 
 					// 繳費
 					echo "<hr>學生" . $_GET[name] . "的繳費情形";
-					$result = mysql_query("select * from pay where student_id=$studentId order by time desc");
+					$result = mysql_query("select * from pay where student_id=$_GET[id] order by time desc");
 					if(mysql_num_rows($result)){
 						echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
 						echo "<tbody>";
@@ -44,7 +40,7 @@
 					}
 					echo "<br><br>";
 					echo "<form method=\"POST\" action=\"pay.php\">";
-					echo "<input type=\"hidden\" name=\"id\" value=\"" . $studentId . "\"> ";
+					echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\"> ";
 					echo "我今天要繳 ";
 					echo "<input type=\"text\" name=\"classes\" style=\"width: 30px;\"> ";
 					echo "堂課的錢 ";
@@ -53,7 +49,7 @@
 					
 					// 固定上課日
 					echo "<hr>學生" . $name . "的上課日期";
-					$result = mysql_query("select * from lesson where student_id=$studentId");
+					$result = mysql_query("select * from lesson where student_id=$_GET[id]");
 					if(mysql_num_rows($result)){
 						echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
 						echo "<tbody>";
@@ -119,7 +115,7 @@
 					}
 					echo "<br><br>";
 					echo "<form method=\"POST\" action=\"lesson.php\">";
-					echo "<input type=\"hidden\" name=\"id\" value=\"" . $studentId . "\"> ";
+					echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\"> ";
 					echo "新增課程 ";
 					echo "<select name=\"day\">";
 					echo "<option value=\"0\">星期天</option>";
@@ -145,7 +141,7 @@
 
 	<script language="javascript">
 		var addLink = function (element){
-			window.location.assign("record_edit.php?id=" + <?=$studentId?> + "&date=" + element.id);
+			window.location.assign("record_edit.php?id=" + <?=$_GET[id]?> + "&date=" + element.id);
 		}
 		var elements = document.getElementsByClassName("calendar-day");
 		for(var i = 0; i < elements.length; i++){
