@@ -91,25 +91,20 @@ Released   : 20140322
 		</div>
 		<div id="tbox2">
 			<div class="title">
-				<h2>本日請假學生</h2>
+				<h2>學生名冊</h2>
 			</div>
-			<table cellpadding="0" cellspacing="0"  class="calendar">
-				<tbody>
-					<tr class="calendar-row">
-						<td class="calendar-day-head">
-							<?
-								$result = mysql_query("select * from student s left join `leave` l on s.id=l.student_id where l.date = date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))");
-								if(mysql_num_rows($result)){
-									while($row = mysql_fetch_array($result)){
-										echo $row[name];
-										echo "<br>";
-									}
-								}
-							?>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<?
+				$result = mysql_query("select * from student");
+				if(mysql_num_rows($result)){
+					while($row = mysql_fetch_array($result)){
+						echo "<form method=\"POST\" action=\"student.php\">";
+						echo "<input type=\"submit\" name=\"name\" class=\"button\" style=\"border:0;\" value=\"". $row[name] ."\">";
+						echo "<input type=\"hidden\" name=\"id\" value=\"". $row[id] ."\">";
+						echo "<input type=\"hidden\" name=\"showPay\" value=\"true\">";
+						echo "</form>";
+					}
+				}
+			?>
 		</div>
 		<div id="tbox3">
 			<div class="title">
@@ -153,48 +148,22 @@ Released   : 20140322
 			</ul>
 		</div>
 	</div>
-	<div id="three-column" class="container">
-		<div><span class="arrow-down"></span></div>
-		<div id="tbox1">
-			<div class="title">
-				<h2>學生姓名</h2>
-			</div>
+	<div id="welcome" class="container">
+		<div class="title">
+			<h2>新增學生</h2>
+		</div>
+		<form method="POST" action="new_student.php">
 			<table>
-				<?
-					$result = mysql_query("select * from student");
-					if(mysql_num_rows($result)){
-						while($row = mysql_fetch_array($result)){
-							echo "<tr>";
-							echo "<td align=\"center\" style=\"height:50px; width:150px;\">";
-							echo "<form method=\"POST\" action=\"student.php\">";
-							echo "<input type=\"submit\" name=\"name\" style=\"width:100%; font-size:36; background-color:white;\" value=\"". $row[name] ."\">";
-							echo "<input type=\"hidden\" name=\"id\" value=\"". $row[id] ."\">";
-							echo "<input type=\"hidden\" name=\"showPay\" value=\"true\">";
-							echo "</form>";
-							echo "</td>";
-							echo "</tr>";
-						}
-					}
-				?>
+				<tr>
+					<th>姓名</th><th>爸爸媽媽電話</th>
+				</tr>
+				<tr>
+					<td><input type="text" name="name"></td>
+					<td><input type="text" name="number"></td>
+				</tr>
 			</table>
-		</div>
-		<div id="tbox2">
-			<div class="title">
-				<h2>新增學生</h2>
-			</div>
-			<form method="POST" action="new_student.php">
-				<table>
-					<tr>
-						<th>姓名</th><th>爸爸媽媽電話</th>
-					</tr>
-					<tr>
-						<td><input type="text" name="name"></td>
-						<td><input type="text" name="number"></td>
-					</tr>
-				</table>
-				<input type="submit" value="新增">
-			</form>
-		</div>
+			<input type="submit" value="新增" class="button" style="border:0;" >
+		</form>
 	</div>
 </div>
 <div id="copyright">
