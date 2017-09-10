@@ -38,50 +38,47 @@ Released   : 20140322
 			<div class="title">
 				<h2>本日預計上課學生</h2>
 			</div>
-			<table cellpadding="0" cellspacing="0"  class="calendar">
-				<tbody>
-					<tr class="calendar-row">
-						<td class="calendar-day-head">早上</td>
-						<td class="calendar-day-head">下午</td>
-						<td class="calendar-day-head">晚上</td>
-					</tr>
-					<tr class="calendar-row">
-						<td class="calendar-day-head">
-							<?
-								$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='MORNING'");
-								if(mysql_num_rows($result)){
-									while($row = mysql_fetch_array($result)){
-										echo $row[name];
-										echo "<br>";
-									}
+			<ul>
+				<li>
+					<p><h3 align="left">早上</h3></p>
+						<?
+							$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='MORNING'");
+							if(mysql_num_rows($result)){
+								while($row = mysql_fetch_array($result)){
+									echo "<p>";
+									echo $row[name];
+									echo "</p>";
 								}
-							?>
-						</td>
-						<td class="calendar-day-head">
-							<?
-								$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='AFTERNOON'");
-								if(mysql_num_rows($result)){
-									while($row = mysql_fetch_array($result)){
-										echo $row[name];
-										echo "<br>";
-									}
+							}
+						?>
+				</li>
+				<li>
+					<p><h3 align="left">下午</h3></p>
+						<?
+							$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='AFTERNOON'");
+							if(mysql_num_rows($result)){
+								while($row = mysql_fetch_array($result)){
+									echo "<p>";
+									echo $row[name];
+									echo "</p>";
 								}
-							?>
-						</td>
-						<td class="calendar-day-head">
-							<?
-								$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='NIGHT'");
-								if(mysql_num_rows($result)){
-									while($row = mysql_fetch_array($result)){
-										echo $row[name];
-										echo "<br>";
-									}
+							}
+						?>
+				</li>
+				<li>
+					<p><h3 align="left">晚上</h3></p>
+						<?
+							$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='NIGHT'");
+							if(mysql_num_rows($result)){
+								while($row = mysql_fetch_array($result)){
+									echo "<p>";
+									echo $row[name];
+									echo "</p>";
 								}
-							?>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+							}
+						?>
+				</li>
+			</ul>
 		</div>
 		<div id="tbox2">
 			<div class="title">
