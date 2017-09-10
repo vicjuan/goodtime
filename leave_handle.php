@@ -37,19 +37,21 @@ Released   : 20140322
 <div class="wrapper">
 	<div id="welcome" class="container">
 		<div class="title">
-		<?
-			$result = mysql_query("select * from `leave` where student_id='$_POST[id]' and date='$_POST[date]'");
-			if(mysql_num_rows($result)){
-				echo "你已經在" . $_POST[date] . "這一天請假過了！";
-			}
-			else {
-				$result = mysql_query("insert into `leave` (`student_id`, `date`) values ('$_POST[id]', '$_POST[date]')");
-				if(!$result){
-					die('請假失敗' . mysql_error());
-				}
-				echo "請假成功！<br>";
-			}
-		?>
+			<h2>
+				<?
+					$result = mysql_query("select * from `leave` where student_id='$_POST[id]' and date='$_POST[date]'");
+					if(mysql_num_rows($result)){
+						echo "你已經在" . $_POST[date] . "這一天請假過了！";
+					}
+					else {
+						$result = mysql_query("insert into `leave` (`student_id`, `date`) values ('$_POST[id]', '$_POST[date]')");
+						if(!$result){
+							die('請假失敗' . mysql_error());
+						}
+						echo "請假成功！<br>";
+					}
+				?>
+			</h2>
 		</div>
 		<a href="index.html" class="button">回到請假首頁</a>
 	</div>
