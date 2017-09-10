@@ -94,7 +94,7 @@ Released   : 20140322
 				<h2>學生名冊</h2>
 			</div>
 			<?
-				$result = mysql_query("select * from student");
+				$result = mysql_query("select * from student order by name");
 				if(mysql_num_rows($result)){
 					while($row = mysql_fetch_array($result)){
 						echo "<a class=\"button\" href=\"student.php?name=" . $row[name] . "&id=" . $row[id] . "\">";
