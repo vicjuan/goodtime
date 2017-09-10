@@ -59,7 +59,7 @@ Released   : 20140322
 				echo "<div class=\"title\">";
 				echo "<h2>".$_POST[name]."點名成功！</h2>";
 				echo "</div>";
-				echo "<a href=\"checkin.html\" class=\"button\">回到點名首頁</a><br>";
+				echo "<a href=\"checkin.html\" class=\"button\">回到點名首頁</a><hr>";
 				student_calendar($_POST[name], $_POST[id]);
 			}
 		?>
