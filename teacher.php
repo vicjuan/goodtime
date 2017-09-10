@@ -99,7 +99,7 @@ Released   : 20140322
 					while($row = mysql_fetch_array($result)){
 						echo "<a href=\"student.php?name=" . $row[name] . "&id=" . $row[id] . "\">";
 						echo $row[name];
-						echo "</a> "
+						echo "</a> ";
 					}
 				}
 			?>
