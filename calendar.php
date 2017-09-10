@@ -18,7 +18,7 @@ td.calendar-day, td.calendar-day-np { width:120px; padding:5px; border-bottom:1p
 function draw_calendar($month,$year){
 
 	/* draw table */
-	$calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
+	$calendar = '<table cellpadding="0" cellspacing="0" class="calendar" align="center">';
 	$calendar.= '<tr class="calendar-row"><td class="calendar-day-head" colspan="7" align="center">'.$year.'年'.$month.'月</td></tr>';
 
 	/* table headings */
