@@ -1,5 +1,6 @@
 <?
 	include("connect.php");
+	include("student_calendar.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
@@ -59,7 +60,7 @@ Released   : 20140322
 				echo "<h2>".$_POST[name]."點名成功！</h2>";
 				echo "</div>";
 				echo "<a href=\"checkin.html\" class=\"button\">回到點名首頁</a><br>";
-				echo "<iframe src=\"student.php?id=".$_POST[id]."&name=".$_POST[name]."\" width=800 height=800 style=\"border:0\"></iframe>";
+				student_calendar($_POST[name], $_POST[id]);
 			}
 		?>
 	</div>
