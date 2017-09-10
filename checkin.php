@@ -46,7 +46,7 @@ Released   : 20140322
 				echo "<input type=\"hidden\" name=\"id\" value=\"".$_POST[id]."\">";
 				echo "<input type=\"hidden\" name=\"name\" value=\"".$_POST[name]."\">";
 				echo "<input type=\"hidden\" name=\"force\" value=\"true\">";
-				echo "<input type=\"submit\" class=\"button\" style=\"border:0;\" value=\"是\">";
+				echo "<input type=\"submit\" class=\"button\" style=\"border:0;\" value=\"是\"> ";
 				echo "<input type=\"button\" class=\"button\" style=\"border:0;\" value=\"否\" onClick=\"window.location='http://goodtime.vicjuan.org';\">";
 				echo "</form>";
 			}
