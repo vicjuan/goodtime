@@ -64,7 +64,7 @@ Released   : 20140322
 		<form method="POST" action="leave_handle.php">
 			<input type="text" id="calendar_input" name="date" style="height:40px;font-size:24pt;width:200px">
 			<input type="hidden" name="id" value="<?=$_POST[id]?>">
-			<span><img id="calendar_icon" src="calendar.png" border="0"></span><br>
+			<span class="icon icon-calendar"></span><br>
 			<input type="submit" value="請假" class="button" style="border:0;">
 		</form>
 	</div>
