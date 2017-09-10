@@ -89,7 +89,7 @@ Released   : 20140322
 				</li>
 			</ul>
 		</div>
-		<div id="tbox2">
+		<div id="tbox2" style="width: 560px">
 			<div class="title">
 				<h2>學生名冊</h2>
 			</div>
