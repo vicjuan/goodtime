@@ -148,12 +148,12 @@ Released   : 20140322
 			</ul>
 		</div>
 	</div>
-	<div id="welcome" class="container">
+	<div id="welcome" class="container" style="border-top: 1px solid rgba(0,0,0,0.2);">
 		<div class="title">
 			<h2>新增學生</h2>
 		</div>
 		<form method="POST" action="new_student.php">
-			<table>
+			<table align="center">
 				<tr>
 					<th>姓名</th><th>爸爸媽媽電話</th>
 				</tr>
