@@ -1,74 +1,23 @@
 <?
 	include("connect.php");
 	include("calendar.php");
+	include("student_calendar.php");
 ?>
 <html>
 	<head>
 		<title>好時光老師系統</title>
 		<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 	</head>
-	<script language="javascript">
-		var mark = function(id, className){
-			var element = document.getElementById(id);
-			element.className += " " + className;
-			var countDiv = element.getElementsByClassName("count-number")[0];
-			countDiv.innerText += "O ";
-		}
-	</script>
 	<body bgcolor="#00BBBB">
 		<center>
 			<?
 				$name = $_POST[name] ? $_POST[name] : $_GET[name];
 				$studentId = $_POST[id] ? $_POST[id] : $_GET[id];
-				echo "學生" . $name . "的出席情形<br>";
-				$calendars = [];
-				$ids = [];
-				$result = mysql_query("select unix_timestamp(date) as time from attend where student_id=$studentId order by time");
-				if(mysql_num_rows($result)){
-					while($row = mysql_fetch_array($result)){
-						$date = getdate($row[time]);
-						$year = $date[year];
-						$month = $date[mon];
-						$day = $date[mday];
-						$id = 'day_' . $year . '_' . $month . '_' . $day;
-						array_push($ids, $id);
-						if(!$calendars[$year]){
-							$calendars[$year] = [];
-						}
-						if(!$calendars[$year][$month]){
-							$calendars[$year][$month] = draw_calendar($month,$year);
-						}
-					}
-				}
-				foreach($calendars as $year){
-					foreach($year as $calendar){
-						echo $calendar;
-					}
-				}
-				$result = mysql_query("select sum(pay_class) as total from pay where student_id=$studentId");
-				$payTotal = mysql_fetch_array($result)[total];
-				$lastPay = 0;
-				if($payTotal > count($ids)){
-					$result = mysql_query("select pay_class from pay where student_id=$studentId order by time desc limit 1");
-					$lastPay = mysql_fetch_array($result)[pay_class];	
-				}
-				echo "<script language=\"javascript\">";
-				$counter = 0;
-				foreach($ids as $id){
-					$counter++;
-					$className = "pink";
-					if($counter <= $payTotal - $lastPay){
-						$className = "lightGreen";
-					}
-					else if($counter <= $payTotal){
-							$className = "lightBlue";
-					}
-					echo "mark(\"" . $id . "\", \"" . $className . "\");";
-				}
-				echo "</script>";
-				if($_POST[showPay] == 'true'){
+				echo "學生" . $_GET[name] . "的出席情形<br>";
+				student_calendar($_GET[name], $_GET[id]);
+
 					// 繳費
-					echo "<hr>學生" . $name . "的繳費情形";
+					echo "<hr>學生" . $_GET[name] . "的繳費情形";
 					$result = mysql_query("select * from pay where student_id=$studentId order by time desc");
 					if(mysql_num_rows($result)){
 						echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
@@ -190,13 +139,10 @@
 					echo "</form>";
 					
 					echo "<a href=\"teacher.php\">回到老師首頁</a>";
-				}
 			?>
 		</center>
 	</body>
-<?
-	if($_POST[showPay] == 'true'){
-?>
+
 	<script language="javascript">
 		var addLink = function (element){
 			window.location.assign("record_edit.php?id=" + <?=$studentId?> + "&date=" + element.id);
@@ -206,7 +152,5 @@
 			elements[i].addEventListener("click", function(){addLink(this);}, false);
 		}
 	</script>
-<?
-	}
-?>
+
 </html>

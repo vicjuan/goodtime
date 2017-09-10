@@ -34,7 +34,7 @@ Released   : 20140322
 <div class="wrapper">
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
-		<div id="tbox1" style="background:#a7dcf9; width:200px">
+		<div id="tbox1" style="background:#a7dcf9; width:20%">
 			<div class="title">
 				<h2>本日上課學生</h2>
 			</div>
@@ -89,7 +89,7 @@ Released   : 20140322
 				</li>
 			</ul>
 		</div>
-		<div id="tbox2" style="width: 560px">
+		<div id="tbox2" style="width: 60%">
 			<div class="title">
 				<h2>學生名冊</h2>
 			</div>
@@ -97,16 +97,14 @@ Released   : 20140322
 				$result = mysql_query("select * from student");
 				if(mysql_num_rows($result)){
 					while($row = mysql_fetch_array($result)){
-						echo "<form method=\"POST\" action=\"student.php\">";
-						echo "<input type=\"submit\" name=\"name\" class=\"button\" style=\"border:0;\" value=\"". $row[name] ."\">";
-						echo "<input type=\"hidden\" name=\"id\" value=\"". $row[id] ."\">";
-						echo "<input type=\"hidden\" name=\"showPay\" value=\"true\">";
-						echo "</form>";
+						echo "<a href=\"student.php?name=" . $row[name] . "&id=" . $row[id] . "\">";
+						echo $row[name];
+						echo "</a> "
 					}
 				}
 			?>
 		</div>
-		<div id="tbox3" style="background:#ffb2b2; width:200px">
+		<div id="tbox3" style="background:#ffb2b2; width:20%">
 			<div class="title">
 				<h2>請假學生</h2>
 			</div>
