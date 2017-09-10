@@ -34,7 +34,7 @@ Released   : 20140322
 <div class="wrapper">
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
-		<div id="tbox1">
+		<div id="tbox1" style="backgrond:#a7dcf9; width:200px">
 			<div class="title">
 				<h2>本日預計上課學生</h2>
 			</div>
@@ -106,7 +106,7 @@ Released   : 20140322
 				}
 			?>
 		</div>
-		<div id="tbox3">
+		<div id="tbox3" style="background:#ffb2b2; width:200px">
 			<div class="title">
 				<h2>請假學生</h2>
 			</div>
