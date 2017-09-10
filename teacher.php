@@ -41,51 +41,51 @@ Released   : 20140322
 			<ul>
 				<li>
 					<p><h3>早上</h3></p>
-						<?
-							$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='MORNING'");
-							if(mysql_num_rows($result)){
-								while($row = mysql_fetch_array($result)){
-									echo "<p>";
-									echo $row[name];
-									echo "</p>";
-								}
+					<?
+						$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='MORNING'");
+						if(mysql_num_rows($result)){
+							while($row = mysql_fetch_array($result)){
+								echo "<p>";
+								echo $row[name];
+								echo "</p>";
 							}
-							else{
-								echo "<p>無</p>";
-							}
-						?>
+						}
+						else{
+							echo "<p>無</p>";
+						}
+					?>
 				</li>
 				<li>
 					<p><h3>下午</h3></p>
-						<?
-							$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='AFTERNOON'");
-							if(mysql_num_rows($result)){
-								while($row = mysql_fetch_array($result)){
-									echo "<p>";
-									echo $row[name];
-									echo "</p>";
-								}
+					<?
+						$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='AFTERNOON'");
+						if(mysql_num_rows($result)){
+							while($row = mysql_fetch_array($result)){
+								echo "<p>";
+								echo $row[name];
+								echo "</p>";
 							}
-							else{
-								echo "<p>無</p>";
-							}
-						?>
+						}
+						else{
+							echo "<p>無</p>";
+						}
+					?>
 				</li>
 				<li>
 					<p><h3>晚上</h3></p>
-						<?
-							$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='NIGHT'");
-							if(mysql_num_rows($result)){
-								while($row = mysql_fetch_array($result)){
-									echo "<p>";
-									echo $row[name];
-									echo "</p>";
-								}
+					<?
+						$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='NIGHT'");
+						if(mysql_num_rows($result)){
+							while($row = mysql_fetch_array($result)){
+								echo "<p>";
+								echo $row[name];
+								echo "</p>";
 							}
-							else{
-								echo "<p>無</p>";
-							}
-						?>
+						}
+						else{
+							echo "<p>無</p>";
+						}
+					?>
 				</li>
 			</ul>
 		</div>
@@ -113,29 +113,44 @@ Released   : 20140322
 		</div>
 		<div id="tbox3">
 			<div class="title">
-				<h2>前後七天請假學生</h2>
+				<h2>請假學生</h2>
 			</div>
-			<table cellpadding="0" cellspacing="0"  class="calendar">
-				<tbody>
+			<ul>
+				<li>
+					<p><h3>本日請假學生</h3></p>
+					<?
+						$result = mysql_query("select * from student s left join `leave` l on s.id=l.student_id where l.date = date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))");
+						if(mysql_num_rows($result)){
+							while($row = mysql_fetch_array($result)){
+								echo "<p>";
+								echo $row[name];
+								echo "</p>";
+							}
+						}
+						else{
+							echo "<p>無</p>";
+						}
+					?>
+				</li>
+				<li>
+					<p><h3>前後七天請假學生</h3></p>
 					<?
 						$result = mysql_query("select * from student s left join `leave` l on s.id=l.student_id where l.date >= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) - interval 7 day and l.date <= date(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00')) + interval 7 day order by l.date");
 						if(mysql_num_rows($result)){
 							while($row = mysql_fetch_array($result)){
-								echo "<tr class=\"calendar-row\">";
-								echo "<td class=\"calendar-day-head\">";
+								echo "<p>";
 								echo $row[name];
-								echo "<br>";
-								echo "</td>";
-								echo "<td class=\"calendar-day-head\">";
+								echo ": ";
 								echo $row[date];
-								echo "<br>";
-								echo "</td>";
-								echo "</tr>";
+								echo "</p>";
 							}
 						}
+						else{
+							echo "<p>無</p>";
+						}
 					?>
-				</tbody>
-			</table>
+				</li>
+			</ul>
 		</div>
 	</div>
 	<div id="three-column" class="container">
