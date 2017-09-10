@@ -34,9 +34,9 @@ Released   : 20140322
 <div class="wrapper">
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
-		<div id="tbox1" style="backgrond:#a7dcf9; width:200px">
+		<div id="tbox1" style="background:#a7dcf9; width:200px">
 			<div class="title">
-				<h2>本日預計上課學生</h2>
+				<h2>本日上課學生</h2>
 			</div>
 			<ul>
 				<li>
