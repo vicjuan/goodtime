@@ -60,7 +60,9 @@ Released   : 20140322
 				echo "<h2>".$_POST[name]."點名成功！</h2>";
 				echo "</div>";
 				echo "<a href=\"checkin.html\" class=\"button\">回到點名首頁</a><br>";
+				echo "<div id=\"banner\" class=\"container\">";
 				student_calendar($_POST[name], $_POST[id]);
+				echo "</div>";
 			}
 		?>
 	</div>
