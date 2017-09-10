@@ -50,6 +50,9 @@ Released   : 20140322
 									echo "</p>";
 								}
 							}
+							else{
+								echo "<p>無</p>";
+							}
 						?>
 				</li>
 				<li>
@@ -63,6 +66,9 @@ Released   : 20140322
 									echo "</p>";
 								}
 							}
+							else{
+								echo "<p>無</p>";
+							}
 						?>
 				</li>
 				<li>
@@ -75,6 +81,9 @@ Released   : 20140322
 									echo $row[name];
 									echo "</p>";
 								}
+							}
+							else{
+								echo "<p>無</p>";
 							}
 						?>
 				</li>
