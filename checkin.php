@@ -1,35 +1,71 @@
 <?
 	include("connect.php");
 ?>
-<html>
-	<head>
-		<title>好時光上課點名系統</title>
-		<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
-	</head>
-	<body bgcolor="#00BBBB">
-		<center>
-			<?
-				$result = mysql_query("select * from attend where student_id='$_POST[id]' and date(current_date())=date(date)");
-				if(mysql_num_rows($result) && $_POST[force] != "true"){
-					echo "你今天已經點名過了喔！確定還要再點一次嗎？";
-					echo "<form method=\"POST\" action=\"checkin.php\">";
-					echo "<input type=\"hidden\" name=\"id\" value=\"".$_POST[id]."\">";
-					echo "<input type=\"hidden\" name=\"name\" value=\"".$_POST[name]."\">";
-					echo "<input type=\"hidden\" name=\"force\" value=\"true\">";
-					echo "<input type=\"submit\" value=\"是\">";
-					echo "<input type=\"button\" value=\"否\" onClick=\"window.location='http://goodtime.vicjuan.org';\">";
-					echo "</form>";
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Undeviating 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20140322
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好時光上課點名系統</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial" rel="stylesheet" />
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head>
+<body>
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">好時光上課點名系統</a></h1>
+		</div>
+	</div>
+</div>
+<div class="wrapper">
+	<div id="welcome" class="container">
+		<?
+			$result = mysql_query("select * from attend where student_id='$_POST[id]' and date(current_date())=date(date)");
+			if(mysql_num_rows($result) && $_POST[force] != "true"){
+				echo "<div class=\"title\">";
+				echo "<h2>你今天已經點名過了喔！確定還要再點一次嗎？</h2>";
+				echo "</div>";
+				echo "<form method=\"POST\" action=\"checkin.php\">";
+				echo "<input type=\"hidden\" name=\"id\" value=\"".$_POST[id]."\">";
+				echo "<input type=\"hidden\" name=\"name\" value=\"".$_POST[name]."\">";
+				echo "<input type=\"hidden\" name=\"force\" value=\"true\">";
+				echo "<input type=\"submit\" class=\"button\" style=\"border:0;\" value=\"是\">";
+				echo "<input type=\"button\" class=\"button\" style=\"border:0;\" value=\"否\" onClick=\"window.location='http://goodtime.vicjuan.org';\">";
+				echo "</form>";
+			}
+			else {
+				$result = mysql_query("insert into attend (student_id, date) values ('$_POST[id]', CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))");
+				if(!$result){
+					die('點名失敗' . mysql_error());
 				}
-				else {
-					$result = mysql_query("insert into attend (student_id, date) values ('$_POST[id]', CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))");
-					if(!$result){
-						die('點名失敗' . mysql_error());
-					}
-					echo $_POST[name]."點名成功！<br>";
-					echo "<a href=\"checkin.html\">回到點名首頁</a><br>";
-					echo "<iframe src=\"student.php?id=".$_POST[id]."&name=".$_POST[name]."\" width=800 height=800 style=\"border:0\"></iframe>";
-				}
-			?>
-		</center>
-	</body>
+				echo "<div class=\"title\">";
+				echo "<h2>".$_POST[name]."點名成功！</h2>";
+				echo "</div>";
+				echo "<a href=\"checkin.html\" class=\"button\">回到點名首頁</a><br>";
+				echo "<iframe src=\"student.php?id=".$_POST[id]."&name=".$_POST[name]."\" width=800 height=800 style=\"border:0\"></iframe>";
+			}
+		?>
+	</div>
+</div>
+<div id="copyright">
+	<p>&copy; Untitled. All rights reserved. | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+</div>
+</body>
 </html>
