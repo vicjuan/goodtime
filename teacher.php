@@ -40,7 +40,7 @@ Released   : 20140322
 			</div>
 			<ul>
 				<li>
-					<p><h3 align="left">早上</h3></p>
+					<p><h3>早上</h3></p>
 						<?
 							$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='MORNING'");
 							if(mysql_num_rows($result)){
@@ -56,7 +56,7 @@ Released   : 20140322
 						?>
 				</li>
 				<li>
-					<p><h3 align="left">下午</h3></p>
+					<p><h3>下午</h3></p>
 						<?
 							$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='AFTERNOON'");
 							if(mysql_num_rows($result)){
@@ -72,7 +72,7 @@ Released   : 20140322
 						?>
 				</li>
 				<li>
-					<p><h3 align="left">晚上</h3></p>
+					<p><h3>晚上</h3></p>
 						<?
 							$result = mysql_query("select * from student s left join lesson l on s.id=l.student_id where l.day=(dayofweek(CONVERT_TZ(UTC_TIMESTAMP(),'+00:00','+08:00'))-1) and l.period='NIGHT'");
 							if(mysql_num_rows($result)){
