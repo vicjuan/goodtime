@@ -22,6 +22,26 @@ Released   : 20140322
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<script src="dgtmlxCalendar/dhtmlxcalendar.js"></script>
+<script>
+	var myCalendar;
+	function doOnLoad() {
+		myCalendar = new dhtmlXCalendarObject({input: "calendar_input", button: "calendar_icon"});
+		myCalendar.setSensitiveRange(new Date(), null);
+	}
+</script>
+<style>
+	#calendar_input {
+		border: 1px solid #dfdfdf;
+		font-family: Roboto, Arial, Helvetica;
+		font-size: 14px;
+		color: #404040;
+	}
+	#calendar_icon {
+		vertical-align: middle;
+		cursor: pointer;
+	}
+</style>
 <body>
 <div id="header-wrapper">
 	<div id="header" class="container">
@@ -36,6 +56,16 @@ Released   : 20140322
 			<h2>學生<?=$_GET[name]?>的出席情形</h2>
 		</div>
 		<?=student_calendar($_GET[name], $_GET[id]);?>
+		<div class="title">
+			<h2>手動新增點名</h2>
+		</div>
+		<form method="POST" action="add_checkin.php">
+			<input type="text" id="calendar_input" name="date" style="height:40px;font-size:24pt;width:200px">
+			<input type="hidden" name="id" value="<?=$_GET[id]?>">
+			<input type="hidden" name="name" value="<?=$_GET[name]?>">
+			<span class="icon icon-calendar" id="calendar_icon"></span><br>
+			<input type="submit" value="新增點名" class="button" style="border:0;">
+		</form>
 	</div>
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
