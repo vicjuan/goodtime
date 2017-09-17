@@ -31,6 +31,12 @@ Released   : 20140322
 	</div>
 </div>
 <div class="wrapper">
+	<div id="welcome" class="container">
+		<div class="title">
+			<h2>學生<?=$_GET[name]?>的出席情形</h2>
+		</div>
+		<?=student_calendar($_GET[name], $_GET[id]);?>
+	</div>
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
 		<div id="tbox1" style="width: 15%">
@@ -65,8 +71,25 @@ Released   : 20140322
 		</div>
 		<div id="tbox2" style="width: 50%">
 			<div class="title">
-				<h2>學生<?=$_GET[name]?>的出席情形</h2>
-				<?=student_calendar($_GET[name], $_GET[id]);?>
+				<h2>修改基本資料</h2>
+				<form method="POST" action="student_edit.php">
+					<table align="center">
+						<tr>
+							<th>姓名</th><th>爸爸媽媽電話</th>
+						</tr>
+						<tr>
+<?
+							$result = mysql_query("select * from student where id=$_GET[id]");
+							if(mysql_num_rows($result)){
+								$row = mysql_fetch_array($result);
+								echo "<td><input type=\"text\" name=\"name\" value=\"" . $row[name] . "\"></td>";
+								echo "<td><input type=\"text\" name=\"number\" value=\"" . $row[number] . "\"></td>";
+							}
+?>
+						</tr>
+					</table>
+					<input type="submit" value="修改" class="button" style="border:0;" >
+				</form>
 			</div>
 		</div>
 		<div id="tbox3" style="width: 15%">
@@ -148,27 +171,6 @@ Released   : 20140322
 		</div>
 	</div>
 	<div id="welcome" class="container" style="border-top: 1px solid rgba(0,0,0,0.2);">
-		<div class="title">
-			<h2>修改基本資料</h2>
-		</div>
-		<form method="POST" action="student_edit.php">
-			<table align="center">
-				<tr>
-					<th>姓名</th><th>爸爸媽媽電話</th>
-				</tr>
-				<tr>
-<?
-					$result = mysql_query("select * from student where id=$_GET[id]");
-					if(mysql_num_rows($result)){
-						$row = mysql_fetch_array($result);
-						echo "<td><input type=\"text\" name=\"name\" value=\"" . $row[name] . "\"></td>";
-						echo "<td><input type=\"text\" name=\"number\" value=\"" . $row[number] . "\"></td>";
-					}
-?>
-				</tr>
-			</table>
-			<input type="submit" value="修改" class="button" style="border:0;" >
-		</form>
 		<a href="teacher.php" class="button">回到老師首頁</a>
 	</div>
 </div>
