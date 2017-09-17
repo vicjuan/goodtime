@@ -116,7 +116,7 @@ Released   : 20140322
 					echo "</td>";
 					echo "</tbody>";
 					echo "</table>";
-					echo "<input type=\"submit\" value=\"修改\" class=\"button\">";
+					echo "<input type=\"submit\" value=\"修改\" class=\"button\" style=\"border:0\">";
 					echo "</form>";
 				}
 			}
