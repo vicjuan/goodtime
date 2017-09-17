@@ -56,6 +56,7 @@ Released   : 20140322
 			<h2>學生<?=$_GET[name]?>的出席情形</h2>
 		</div>
 		<?=student_calendar($_GET[name], $_GET[id]);?>
+		<p></p>
 		<p>手動新增點名</p>
 		<form method="POST" action="add_checkin.php">
 			<input type="text" id="calendar_input" name="date" style="height:40px;font-size:24pt;width:200px">
