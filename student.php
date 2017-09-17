@@ -58,7 +58,7 @@ Released   : 20140322
 					echo "我要繳 ";
 					echo "<input type=\"text\" name=\"classes\" style=\"width: 30px;\"> ";
 					echo "堂課的錢 ";
-					echo "<input type=\"submit\" value=\"繳費\" class=\"button\">";
+					echo "<input type=\"submit\" value=\"繳費\" class=\"button\" style=\"border:0;\">";
 					echo "</form>";
 ?>
 			</div>
@@ -141,13 +141,34 @@ Released   : 20140322
 					echo "<option value=\"AFTERNOON\">下午</option>";
 					echo "<option value=\"NIGHT\">晚上</option>";
 					echo "</select> ";
-					echo "<input type=\"submit\" value=\"新增\" class=\"button\">";
+					echo "<input type=\"submit\" value=\"新增\" class=\"button\" style=\"border:0;\">";
 					echo "</form>";
 ?>
 			</div>
 		</div>
 	</div>
 	<div id="welcome" class="container" style="border-top: 1px solid rgba(0,0,0,0.2);">
+		<div class="title">
+			<h2>修改基本資料</h2>
+		</div>
+		<form method="POST" action="student_edit.php">
+			<table align="center">
+				<tr>
+					<th>姓名</th><th>爸爸媽媽電話</th>
+				</tr>
+				<tr>
+<?
+					$result = mysql_query("select * from student where id=$_GET[id]");
+					if(mysql_num_rows($result)){
+						$row = mysql_fetch_array($result);
+						echo "<td><input type=\"text\" name=\"name\" value=\"" . $row[name] . "\"></td>";
+						echo "<td><input type=\"text\" name=\"number\" value=\"" . $row[number] . "\"></td>";
+					}
+?>
+				</tr>
+			</table>
+			<input type="submit" value="修改" class="button" style="border:0;" >
+		</form>
 		<a href="teacher.php" class="button">回到老師首頁</a>
 	</div>
 </div>
