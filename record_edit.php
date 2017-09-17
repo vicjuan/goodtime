@@ -77,7 +77,17 @@ Released   : 20140322
 					echo "</table>";
 					echo "</form>";
 				}
-				
+			?>
+
+			<form method="POST" action="add_checkin.php">
+				我要在這一天新增點名 
+				<input type="hidden" name="id" value="<?=$_GET[id]?>">
+				<input type="hidden" name="name" value="<?=$_GET[name]?>">
+				<input type="hidden" name="date" value="<?=$date?>">
+				<input type="submit" value="新增" class="button" style="border:0">
+			</form>
+
+			<?	
 				$result = mysql_query("select * from `leave` where student_id=$_GET[id] and unix_timestamp(date) >= unix_timestamp(\"$date\") and unix_timestamp(date) < unix_timestamp(\"$date\") + 86400");
 				if(mysql_num_rows($result)){
 					$row = mysql_fetch_array($result);
@@ -105,13 +115,6 @@ Released   : 20140322
 					echo "</form>";
 				}
 			?>
-			<form method="POST" action="add_checkin.php">
-				我要在這一天新增點名 
-				<input type="hidden" name="id" value="<?=$_GET[id]?>">
-				<input type="hidden" name="name" value="<?=$_GET[name]?>">
-				<input type="hidden" name="date" value="<?=$date?>">
-				<input type="submit" value="新增" class="button" style="border:0">
-			</form>
 			
 			<form method="POST" action="leave_handle.php">
 				我要在這一天新增請假 
