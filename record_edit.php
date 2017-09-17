@@ -59,13 +59,13 @@ Released   : 20140322
 						echo "<form method=\"POST\" action=\"record_edit_handle.php\">";
 						echo "<input type=\"hidden\" name=\"id\" value=\"" . $row[id] . "\">";
 						echo "<tr>";
-						echo "<td class=\"calendar-day\" style=\"width: initial;\">";
+						echo "<td style=\"width: initial;\">";
 						echo $index;
 						echo "</td>";
-						echo "<td class=\"calendar-day\" style=\"text-align: center;\">";
+						echo "<td style=\"text-align: center;\">";
 						echo "<input type=\"text\" name=\"date\" value=\"" . $row[date] . "\">";
 						echo "</td>";
-						echo "<td class=\"calendar-day\" style=\"text-align: center;\">";
+						echo "<td style=\"text-align: center;\">";
 						echo "<input type=\"submit\" name=\"action\" value=\"edit\">";
 						echo "<input type=\"submit\" name=\"action\" value=\"delete\">";
 						echo "</td>";
