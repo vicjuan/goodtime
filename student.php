@@ -66,6 +66,14 @@ Released   : 20140322
 			<span class="icon icon-calendar" id="calendar_icon"></span><br>
 			<input type="submit" value="新增點名" class="button" style="border:0;">
 		</form>
+		<p>手動新增缺席</p>
+		<form method="POST" action="leave_handle.php">
+			<input type="text" id="calendar_input" name="date" style="height:40px;font-size:24pt;width:200px">
+			<input type="hidden" name="id" value="<?=$_GET[id]?>">
+			<input type="hidden" name="name" value="<?=$_GET[name]?>">
+			<span class="icon icon-calendar" id="calendar_icon"></span><br>
+			<input type="submit" value="新增缺席" class="button" style="border:0;">
+		</form>
 	</div>
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
