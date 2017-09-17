@@ -178,5 +178,14 @@ Released   : 20140322
 <div id="copyright">
 	<p>&copy; Untitled. All rights reserved. | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
 </div>
+<script language="javascript">
+	var addLink = function (element){
+		window.location.assign("record_edit.php?id=" + <?=$_GET[id]?> + "&date=" + element.id);
+	}
+	var elements = document.getElementsByClassName("calendar-day");
+	for(var i = 0; i < elements.length; i++){
+		elements[i].addEventListener("click", function(){addLink(this);}, false);
+	}
+</script>
 </body>
 </html>
