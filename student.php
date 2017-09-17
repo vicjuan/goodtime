@@ -43,9 +43,9 @@ Released   : 20140322
 						while($row = mysql_fetch_array($result)){
 							echo "<li>";
 							echo "<p><h3>" . $row[time] . "</h3></p>";
-							echo "<p>" . $row[pay_class] . "</p>";
 							echo "<form method=\"POST\" action=\"pay_edit.php\">";
-							echo "<input type=\"submit\" value=\"修改紀錄\" class=\"button\">";
+							echo $row[pay_class];
+							echo "<input type=\"submit\" value=\"修改紀錄\">";
 							echo "<input type=\"hidden\" name=\"id\" value=\"" . $row[id] . "\">";
 							echo "</form>";
 							echo "</li>";
