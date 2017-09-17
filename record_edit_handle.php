@@ -55,7 +55,7 @@ Released   : 20140322
 			?>
 			</h2>
 		</div>
-		<a href="student.php?name=<?=$_POST[name]?>&id=<?=$_POST[id]?>" class="button">回到學生首頁</a>
+		<a href="student.php?name=<?=$_POST[name]?>&id=<?=$_POST[student_id]?>" class="button">回到學生首頁</a>
 	</div>
 </div>
 <div id="copyright">

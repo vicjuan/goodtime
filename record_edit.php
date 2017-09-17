@@ -59,6 +59,7 @@ Released   : 20140322
 						echo "<form method=\"POST\" action=\"record_edit_handle.php\">";
 						echo "<input type=\"hidden\" name=\"id\" value=\"" . $row[id] . "\">";
 						echo "<input type=\"hidden\" name=\"name\" value=\"" . $_GET[name] . "\">";
+						echo "<input type=\"hidden\" name=\"student_id\" value=\"" . $_GET[id] . "\">";
 						echo "<tr>";
 						echo "<td style=\"width: initial;\">";
 						echo $index;
