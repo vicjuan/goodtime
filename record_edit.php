@@ -77,14 +77,49 @@ Released   : 20140322
 					echo "</table>";
 					echo "</form>";
 				}
-				echo "<form method=\"POST\" action=\"add_checkin.php\">";
-				echo "我要在這一天新增點名 ";
-				echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\">";
-				echo "<input type=\"hidden\" name=\"name\" value=\"" . $_GET[name] . "\">";
-				echo "<input type=\"hidden\" name=\"date\" value=\"" . $date . "\">";
-				echo "<input type=\"submit\" value=\"新增\" class=\"button\" style=\"border:0\">";
-				echo "</form>";
+				
+				$result = mysql_query("select * from `leave` where student_id=$_GET[id] and unix_timestamp(date) >= unix_timestamp(\"$date\") and unix_timestamp(date) < unix_timestamp(\"$date\") + 86400");
+				if(mysql_num_rows($result)){
+					$row = mysql_fetch_array($result);
+					echo "<table align=\"center\">";
+					echo "<tbody>";
+					echo "<tr>";
+					echo "<th>請假日期</th>";
+					echo "<th></th>";
+					echo "</tr>";
+					echo "<form method=\"POST\" action=\"leave_edit_handle.php\">";
+					echo "<input type=\"hidden\" name=\"id\" value=\"" . $row[id] . "\">";
+					echo "<input type=\"hidden\" name=\"name\" value=\"" . $_GET[name] . "\">";
+					echo "<input type=\"hidden\" name=\"student_id\" value=\"" . $_GET[id] . "\">";
+					echo "<tr>";
+					echo "<td style=\"text-align: center;\">";
+					echo "<input type=\"text\" name=\"date\" value=\"" . $row[date] . "\">";
+					echo "</td>";
+					echo "<td style=\"text-align: center;\">";
+					echo "<input type=\"submit\" name=\"action\" value=\"edit\">";
+					echo "<input type=\"submit\" name=\"action\" value=\"delete\">";
+					echo "</td>";
+					echo "</tr>";
+					echo "</tbody>";
+					echo "</table>";
+					echo "</form>";
+				}
 			?>
+			<form method="POST" action="add_checkin.php">
+				我要在這一天新增點名 
+				<input type="hidden" name="id" value="<?=$_GET[id]?>">
+				<input type="hidden" name="name" value="<?=$_GET[name]?>">
+				<input type="hidden" name="date" value="<?=$date?>">
+				<input type="submit" value="新增" class="button" style="border:0">
+			</form>
+			
+			<form method="POST" action="leave_handle.php">
+				我要在這一天新增請假 
+				<input type="hidden" name="id" value="<?=$_GET[id]?>">
+				<input type="hidden" name="name" value="<?=$_GET[name]?>">
+				<input type="hidden" name="date" value="<?=$date?>">
+				<input type="submit" value="新增" class="button" style="border:0">
+			</form>
 		</div>
 		<a href="student.php?name=<?=$_GET[name]?>&id=<?=$_GET[id]?>" class="button">回到學生首頁</a>
 	</div>
