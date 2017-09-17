@@ -26,9 +26,9 @@ Released   : 20140322
 <link rel="stylesheet" type="text/css" href="dgtmlxCalendar/dhtmlxcalendar.css"/>
 <script src="dgtmlxCalendar/dhtmlxcalendar.js"></script>
 <script>
-	var myCalendar;
 	function doOnLoad() {
-		myCalendar = new dhtmlXCalendarObject({input: "calendar_input", button: "calendar_icon"});
+		new dhtmlXCalendarObject({input: "calendar_input", button: "calendar_icon"});
+		new dhtmlXCalendarObject({input: "calendar_input_leave", button: "calendar_icon_leave"});
 	}
 </script>
 <style>
@@ -68,10 +68,10 @@ Released   : 20140322
 		</form>
 		<p>手動新增缺席</p>
 		<form method="POST" action="leave_handle.php">
-			<input type="text" id="calendar_input" name="date" style="height:40px;font-size:24pt;width:200px">
+			<input type="text" id="calendar_input_leave" name="date" style="height:40px;font-size:24pt;width:200px">
 			<input type="hidden" name="id" value="<?=$_GET[id]?>">
 			<input type="hidden" name="name" value="<?=$_GET[name]?>">
-			<span class="icon icon-calendar" id="calendar_icon"></span><br>
+			<span class="icon icon-calendar" id="calendar_icon_leave"></span><br>
 			<input type="submit" value="新增缺席" class="button" style="border:0;">
 		</form>
 	</div>
