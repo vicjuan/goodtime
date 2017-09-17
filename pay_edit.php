@@ -37,35 +37,30 @@ Released   : 20140322
 </div>
 <div class="wrapper">
 	<div id="welcome" class="container">
-			<?
-				$result = mysql_query("select * from pay where id=$_POST[id]");
-				if(mysql_num_rows($result)){
-					$row = mysql_fetch_array($result);
-					echo "<form method=\"POST\" action=\"pay_edit_handle.php\">";
-					echo "<input type=\"hidden\" name=\"id\" value=\"" . $_POST[id] . "\">";
-					echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
-					echo "<tbody>";
-					echo "<tr class=\"calendar-row\">";
-					echo "<td class=\"calendar-day-head\">堂數</th>";
-					echo "<td class=\"calendar-day-head\">繳費日期</th>";
-					echo "<td class=\"calendar-day-head\"></th>";
-					echo "</tr>";
-					echo "<tr>";
-					echo "<td class=\"calendar-day\" style=\"text-align: center;\">";
-					echo "<input type=\"text\" name=\"class\" value=\"" . $row[pay_class] . "\">";
-					echo "</td>";
-					echo "<td class=\"calendar-day\" style=\"width: initial;\">";
-					echo "<input type=\"text\" name=\"time\" value=\"" . $row[time] . "\">";
-					echo "</td>";
-					echo "<td class=\"calendar-day\" style=\"text-align: center;\">";
-					echo "<input type=\"submit\" value=\"送出\">";
-					echo "</td>";
-					echo "</tr>";
-					echo "</tbody>";
-					echo "</table>";
-					echo "</form>";
-				}
-			?>
+		<form method="POST" action="pay_edit_handle.php">
+			<table align="center" >
+				<tr>
+					<td>堂數</td>
+					<td>繳費日期</td>
+				</tr>
+				<tr>
+				<?
+					$result = mysql_query("select * from pay where id=$_POST[id]");
+					if(mysql_num_rows($result)){
+						$row = mysql_fetch_array($result);
+						echo "<input type=\"hidden\" name=\"id\" value=\"" . $_POST[id] . "\">";
+						echo "<td style=\"text-align: center;\">";
+						echo "<input type=\"text\" name=\"class\" value=\"" . $row[pay_class] . "\">";
+						echo "</td>";
+						echo "<td style=\"width: initial;\">";
+						echo "<input type=\"text\" name=\"time\" value=\"" . $row[time] . "\">";
+						echo "</td>";
+					}
+				?>
+				</tr>
+			</table>
+			<input type="submit" value="送出" class="button">
+		</form>
 		<a href="teacher.php" class="button">回到老師首頁</a>
 	</div>
 </div>
