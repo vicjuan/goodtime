@@ -24,10 +24,10 @@ function student_calendar ($name, $studentId) {
 		}
 	}
 	
-	$result = mysql_query("select unix_timestamp(date) as time from leave where student_id=$studentId order by time");
+	$result = mysql_query("select * leave where student_id=$studentId order by date");
 	if(mysql_num_rows($result)){
 		while($row = mysql_fetch_array($result)){
-			$date = getdate($row[time]);
+			$date = getdate($row[date]);
 			$year = $date[year];
 			$month = $date[mon];
 			$day = $date[mday];
@@ -79,7 +79,7 @@ function student_calendar ($name, $studentId) {
 	foreach($leaves as $id){
 		$counter++;
 		$className = "red";
-		echo "mark(\"" . $id . "\", \"" . $className . "\, \"X \");";
+		echo "mark(\"" . $id . "\", \"red\", \"X \");";
 	}
 ?>
 	</script>
