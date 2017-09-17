@@ -53,15 +53,14 @@ Released   : 20140322
 					$row = mysql_fetch_array($result);
 					echo "<form method=\"POST\" action=\"lesson_edit_handle.php\">";
 					echo "<input type=\"hidden\" name=\"id\" value=\"" . $_POST[id] . "\">";
-					echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
+					echo "<table align=\"center\">";
 					echo "<tbody>";
-					echo "<tr class=\"calendar-row\">";
-					echo "<td class=\"calendar-day-head\">星期</td>";
-					echo "<td class=\"calendar-day-head\">時段</td>";
-					echo "<td class=\"calendar-day-head\"></td>";
+					echo "<tr>";
+					echo "<th>星期</th>";
+					echo "<th>時段</th>";
 					echo "</tr>";
 					echo "<tr>";
-					echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
+					echo "<td>";
 					echo "<select name=\"day\">";
 					for($index = 0; $index < 7; $index++){
 						echo "<option value=\"". $index . "\" ";
@@ -96,7 +95,7 @@ Released   : 20140322
 					}
 					echo "</select> ";
 					echo "</td>";
-					echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
+					echo "<td>";
 					echo "<select name=\"period\" >";
 					echo "<option value=\"MORNING\" ";
 					if($row['period'] == 'MORNING'){
@@ -115,11 +114,9 @@ Released   : 20140322
 					echo ">晚上</option>";
 					echo "</select> ";
 					echo "</td>";
-					echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
-					echo "<input type=\"submit\" value=\"修改\">";
-					echo "</td>";
 					echo "</tbody>";
 					echo "</table>";
+					echo "<input type=\"submit\" value=\"修改\" class=\"button\">";
 					echo "</form>";
 				}
 			}
