@@ -38,7 +38,7 @@ Released   : 20140322
 <div class="wrapper">
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
-		<div id="tbox1" style="width: 45%">
+		<div id="tbox1" style="width: 42%">
 			<?
 				$tok = strtok($_GET['date'], "_");
 				$year = strtok("_");
@@ -88,7 +88,7 @@ Released   : 20140322
 				<input type="submit" value="新增" class="button" style="border:0">
 			</form>
 		</div>
-		<div id="tbox3" style="width: 45%">
+		<div id="tbox3" style="width: 42%; border-left: 1px solid rgba(0,0,0,0.2)">
 			<?	
 				$result = mysql_query("select * from `leave` where student_id=$_GET[id] and unix_timestamp(date) >= unix_timestamp(\"$date\") and unix_timestamp(date) < unix_timestamp(\"$date\") + 86400");
 				if(mysql_num_rows($result)){
