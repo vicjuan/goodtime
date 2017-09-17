@@ -84,7 +84,7 @@ Released   : 20140322
 								$row = mysql_fetch_array($result);
 								echo "<td><input type=\"text\" name=\"name\" style=\"height:40px;font-size:24pt;width:200px\" value=\"" . $row[name] . "\"></td>";
 								echo "<td><input type=\"text\" name=\"number\" style=\"height:40px;font-size:24pt;width:200px\" value=\"" . $row[number] . "\"></td>";
-								echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\">"
+								echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\">";
 							}
 ?>
 						</tr>
