@@ -71,21 +71,14 @@ Released   : 20140322
 		</div>
 		<div id="tbox3" style="width: 15%">
 			<div class="title">
-				<h2>學生<?=$_GET[name]?>的上課日期</h2>
+				<h2>上課日期</h2>
 <?
 					$result = mysql_query("select * from lesson where student_id=$_GET[id]");
 					if(mysql_num_rows($result)){
-						echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
-						echo "<tbody>";
-						echo "<tr class=\"calendar-row\">";
-						echo "<td class=\"calendar-day-head\">星期</td>";
-						echo "<td class=\"calendar-day-head\">時段</td>";
-						echo "<td class=\"calendar-day-head\">修改</td>";
-						echo "<td class=\"calendar-day-head\">刪除</td>";
-						echo "</tr>";
+						echo "<ul>";
 						while($row = mysql_fetch_array($result)){
-							echo "<tr>";
-							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
+							echo "<li>";
+							echo "<p><h3>";
 							switch($row[day]){
 								case 0:
 									echo "星期天";
@@ -109,8 +102,6 @@ Released   : 20140322
 									echo "星期六";
 									break;
 							}
-							echo "</td>";
-							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
 							switch($row[period]){
 								case 'MORNING':
 									echo "早上";
@@ -122,20 +113,15 @@ Released   : 20140322
 									echo "晚上";
 									break;
 							}
-							echo "</td>";
+							echo "</h3></p>";
 							echo "<form method=\"POST\" action=\"lesson_edit.php\">";
 							echo "<input type=\"hidden\" name=\"id\" value=\"" . $row[id] . "\">";
-							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
 							echo "<input type=\"submit\" name=\"mode\" value=\"edit\">";
-							echo "</td>";
-							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
 							echo "<input type=\"submit\" name=\"mode\" value=\"delete\">";
-							echo "</td>";
 							echo "</form>";
-							echo "</tr>";
+							echo "</li>";
 						}
-						echo "</tbody>";
-						echo "</table>";
+						echo "</ul>";
 					}
 					echo "<br><br>";
 					echo "<form method=\"POST\" action=\"lesson.php\">";
@@ -155,7 +141,7 @@ Released   : 20140322
 					echo "<option value=\"AFTERNOON\">下午</option>";
 					echo "<option value=\"NIGHT\">晚上</option>";
 					echo "</select> ";
-					echo "<input type=\"submit\" value=\"新增\">";
+					echo "<input type=\"submit\" value=\"新增\" class=\"button\">";
 					echo "</form>";
 ?>
 			</div>
