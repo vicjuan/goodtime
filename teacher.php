@@ -156,8 +156,8 @@ Released   : 20140322
 					<th>姓名</th><th>爸爸媽媽電話</th>
 				</tr>
 				<tr>
-					<td><input type="text" name="name"></td>
-					<td><input type="text" name="number"></td>
+					<td><input type="text" name="name" style="height:40px;font-size:24pt;width:200px"></td>
+					<td><input type="text" name="number" style="height:40px;font-size:24pt;width:200px"></td>
 				</tr>
 			</table>
 			<input type="submit" value="新增" class="button" style="border:0;" >

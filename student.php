@@ -82,8 +82,8 @@ Released   : 20140322
 							$result = mysql_query("select * from student where id=$_GET[id]");
 							if(mysql_num_rows($result)){
 								$row = mysql_fetch_array($result);
-								echo "<td><input type=\"text\" name=\"name\" value=\"" . $row[name] . "\"></td>";
-								echo "<td><input type=\"text\" name=\"number\" value=\"" . $row[number] . "\"></td>";
+								echo "<td><input type=\"text\" name=\"name\" style=\"height:40px;font-size:24pt;width:200px\" value=\"" . $row[name] . "\"></td>";
+								echo "<td><input type=\"text\" name=\"number\" style=\"height:40px;font-size:24pt;width:200px\" value=\"" . $row[number] . "\"></td>";
 							}
 ?>
 						</tr>
