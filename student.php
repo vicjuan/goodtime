@@ -56,6 +56,15 @@ Released   : 20140322
 			<h2>學生<?=$_GET[name]?>的出席情形</h2>
 		</div>
 		<?=student_calendar($_GET[name], $_GET[id]);?>
+		<script language="javascript">
+			var addLink = function (element){
+				window.location.assign("record_edit.php?id=<?=$_GET[id]?>&name=<?=$_GET[name]?>&date=" + element.id);
+			}
+			var elements = document.getElementsByClassName("calendar-day");
+			for(var i = 0; i < elements.length; i++){
+				elements[i].addEventListener("click", function(){addLink(this);}, false);
+			}
+		</script>
 		<p></p>
 		<p>手動新增點名</p>
 		<form method="POST" action="add_checkin.php">
@@ -207,14 +216,5 @@ Released   : 20140322
 <div id="copyright">
 	<p>&copy; Untitled. All rights reserved. | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
 </div>
-<script language="javascript">
-	var addLink = function (element){
-		window.location.assign("record_edit.php?id=<?=$_GET[id]?>&name=<?=$_GET[name]?>&date=" + element.id);
-	}
-	var elements = document.getElementsByClassName("calendar-day");
-	for(var i = 0; i < elements.length; i++){
-		elements[i].addEventListener("click", function(){addLink(this);}, false);
-	}
-</script>
 </body>
 </html>
