@@ -47,7 +47,7 @@ Released   : 20140322
 ?>
 			</h2>
 		</div>
-		<a href="teacher.php" style="button">回到老師首頁</a>
+		<a href="teacher.php" class="button">回到老師首頁</a>
 	</div>
 </div>
 <div id="copyright">
