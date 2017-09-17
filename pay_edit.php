@@ -50,16 +50,16 @@ Released   : 20140322
 						$row = mysql_fetch_array($result);
 						echo "<input type=\"hidden\" name=\"id\" value=\"" . $_POST[id] . "\">";
 						echo "<td style=\"text-align: center;\">";
-						echo "<input type=\"text\" name=\"class\" style=\"height:40px;font-size:24pt;width:200px\" value=\"" . $row[pay_class] . "\">";
+						echo "<input type=\"text\" name=\"class\" style=\"height:40px;font-size:24pt;width:50px\" value=\"" . $row[pay_class] . "\">";
 						echo "</td>";
 						echo "<td style=\"width: initial;\">";
-						echo "<input type=\"text\" name=\"time\" style=\"height:40px;font-size:24pt;width:200px\" value=\"" . $row[time] . "\">";
+						echo "<input type=\"text\" name=\"time\" style=\"height:40px;font-size:24pt;width:350px\" value=\"" . $row[time] . "\">";
 						echo "</td>";
 					}
 				?>
 				</tr>
 			</table>
-			<input type="submit" value="送出" class="button">
+			<input type="submit" style="border:0;" value="送出" class="button">
 		</form>
 		<a href="teacher.php" class="button">回到老師首頁</a>
 	</div>
