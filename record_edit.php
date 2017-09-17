@@ -36,8 +36,9 @@ Released   : 20140322
 	</div>
 </div>
 <div class="wrapper">
-	<div id="welcome" class="container">
-		<div class="title">
+	<div id="three-column" class="container">
+		<div><span class="arrow-down"></span></div>
+		<div id="tbox1" style="width: 45%">
 			<?
 				$tok = strtok($_GET['date'], "_");
 				$year = strtok("_");
@@ -86,7 +87,8 @@ Released   : 20140322
 				<input type="hidden" name="date" value="<?=$date?>">
 				<input type="submit" value="新增" class="button" style="border:0">
 			</form>
-
+		</div>
+		<div id="tbox3" style="width: 45%">
 			<?	
 				$result = mysql_query("select * from `leave` where student_id=$_GET[id] and unix_timestamp(date) >= unix_timestamp(\"$date\") and unix_timestamp(date) < unix_timestamp(\"$date\") + 86400");
 				if(mysql_num_rows($result)){
@@ -124,6 +126,7 @@ Released   : 20140322
 				<input type="submit" value="新增" class="button" style="border:0">
 			</form>
 		</div>
+	<div id="welcome" class="container">
 		<a href="student.php?name=<?=$_GET[name]?>&id=<?=$_GET[id]?>" class="button">回到學生首頁</a>
 	</div>
 </div>
