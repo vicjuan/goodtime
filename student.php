@@ -35,39 +35,30 @@ Released   : 20140322
 		<div><span class="arrow-down"></span></div>
 		<div id="tbox1" style="width: 15%">
 			<div class="title">
-				<h2>學生<?=$_GET[name]?>的繳費情形</h2>
+				<h2>繳費情形</h2>
 <?
 					$result = mysql_query("select * from pay where student_id=$_GET[id] order by time desc");
 					if(mysql_num_rows($result)){
-						echo "<table cellpadding=\"0\" cellspacing=\"0\"  class=\"calendar\">";
-						echo "<tbody>";
-						echo "<tr class=\"calendar-row\">";
-						echo "<td class=\"calendar-day-head\">堂數</td>";
-						echo "<td class=\"calendar-day-head\">繳費日期</td>";
-						echo "<td class=\"calendar-day-head\">修改</td>";
-						echo "</tr>";
+						echo "<ul>";
 						while($row = mysql_fetch_array($result)){
-							echo "<tr>";
-							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">" . $row[pay_class] . "</td>";
-							echo "<td class=\"calendar-day-np\" style=\"width: initial;\">" . $row[time] . "</td>";
+							echo "<li>";
+							echo "<p><h3>" . $row[time] . "</h3></p>";
+							echo "<p>" . $row[pay_class] . "</p>";
 							echo "<form method=\"POST\" action=\"pay_edit.php\">";
-							echo "<td class=\"calendar-day-np\" style=\"text-align: center;\">";
-							echo "<input type=\"submit\" value=\"修改紀錄\">";
+							echo "<input type=\"submit\" value=\"修改紀錄\" class=\"button\">";
 							echo "<input type=\"hidden\" name=\"id\" value=\"" . $row[id] . "\">";
-							echo "</td>";
 							echo "</form>";
-							echo "</tr>";
+							echo "</li>";
 						}
-						echo "</tbody>";
-						echo "</table>";
+						echo "</ul>";
 					}
 					echo "<br><br>";
 					echo "<form method=\"POST\" action=\"pay.php\">";
 					echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\"> ";
-					echo "我今天要繳 ";
+					echo "我要繳 ";
 					echo "<input type=\"text\" name=\"classes\" style=\"width: 30px;\"> ";
 					echo "堂課的錢 ";
-					echo "<input type=\"submit\" value=\"繳費\" style=\"text-align:center; background:white; height: 30px; width: 50px; font-size: 16;\">";
+					echo "<input type=\"submit\" value=\"繳費\" class=\"button\">";
 					echo "</form>";
 ?>
 			</div>
