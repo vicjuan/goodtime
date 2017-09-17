@@ -24,7 +24,7 @@ function student_calendar ($name, $studentId) {
 		}
 	}
 	
-	$result = mysql_query("select * from `leave` where student_id=$studentId order by date");
+	$result = mysql_query("select unix_timestamp(date) as time from `leave` where student_id=$studentId order by time");
 	if(mysql_num_rows($result)){
 		while($row = mysql_fetch_array($result)){
 			$date = getdate($row[date]);
