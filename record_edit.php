@@ -58,6 +58,7 @@ Released   : 20140322
 						$index++;
 						echo "<form method=\"POST\" action=\"record_edit_handle.php\">";
 						echo "<input type=\"hidden\" name=\"id\" value=\"" . $row[id] . "\">";
+						echo "<input type=\"hidden\" name=\"name\" value=\"" . $_GET[name] . "\">";
 						echo "<tr>";
 						echo "<td style=\"width: initial;\">";
 						echo $index;
