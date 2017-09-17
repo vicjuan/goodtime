@@ -82,7 +82,7 @@ Released   : 20140322
 				echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\">";
 				echo "<input type=\"hidden\" name=\"name\" value=\"" . $_GET[name] . "\">";
 				echo "<input type=\"hidden\" name=\"date\" value=\"" . $date . "\">";
-				echo "<input type=\"submit\" value=\"新增\">";
+				echo "<input type=\"submit\" value=\"新增\" class=\"button\" style=\"border:0\">";
 				echo "</form>";
 			?>
 		</div>
