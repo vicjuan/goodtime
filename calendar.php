@@ -8,6 +8,7 @@ td.calendar-day-head { background:#ccc; font-weight:bold; text-align:center; wid
 td.lightblue	{ background:lightblue; }
 td.pink	{ background:pink; }
 td.lightGreen	{ background:lightGreen; }
+td.red	{ background:red; }
 div.day-number		{ background:#999; padding:5px; color:#fff; font-weight:bold; float:right; margin:-5px -5px 0 0; width:20px; text-align:center; }
 div.count-number {font-size: 24; font-weight:bold; float:left; margin:-10px -10px 0 0; width:20px; text-align:center;}
 /* shared */
