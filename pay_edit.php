@@ -40,8 +40,8 @@ Released   : 20140322
 		<form method="POST" action="pay_edit_handle.php">
 			<table align="center" >
 				<tr>
-					<td>堂數</td>
-					<td>繳費日期</td>
+					<th>堂數</th>
+					<th>繳費日期</th>
 				</tr>
 				<tr>
 				<?
@@ -50,10 +50,10 @@ Released   : 20140322
 						$row = mysql_fetch_array($result);
 						echo "<input type=\"hidden\" name=\"id\" value=\"" . $_POST[id] . "\">";
 						echo "<td style=\"text-align: center;\">";
-						echo "<input type=\"text\" name=\"class\" value=\"" . $row[pay_class] . "\">";
+						echo "<input type=\"text\" name=\"class\" style=\"height:40px;font-size:24pt;width:200px\" value=\"" . $row[pay_class] . "\">";
 						echo "</td>";
 						echo "<td style=\"width: initial;\">";
-						echo "<input type=\"text\" name=\"time\" value=\"" . $row[time] . "\">";
+						echo "<input type=\"text\" name=\"time\" style=\"height:40px;font-size:24pt;width:200px\" value=\"" . $row[time] . "\">";
 						echo "</td>";
 					}
 				?>
