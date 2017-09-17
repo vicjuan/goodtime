@@ -39,7 +39,7 @@ Released   : 20140322
 		<div class="title">
 			<h2>
 			<?
-				$result = mysql_query("update student set name=$_POST[name], number=\"$_POST[number]\" where id=$_POST[id]");
+				$result = mysql_query("update student set name=\"$_POST[name]\", number=\"$_POST[number]\" where id=$_POST[id]");
 				if(!$result){
 					die('修改失敗' . mysql_error());
 				}
