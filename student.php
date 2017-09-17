@@ -180,7 +180,7 @@ Released   : 20140322
 </div>
 <script language="javascript">
 	var addLink = function (element){
-		window.location.assign("record_edit.php?id=" + <?=$_GET[id]?> + "&date=" + element.id);
+		window.location.assign("record_edit.php?id=" + <?=$_GET[id]?> + "&name=" + <?=$_GET[name]?> + "&date=" + element.id);
 	}
 	var elements = document.getElementsByClassName("calendar-day");
 	for(var i = 0; i < elements.length; i++){
