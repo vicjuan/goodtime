@@ -5,6 +5,7 @@ include("connect.php");
 function student_calendar ($name, $studentId) {
 	$calendars = [];
 	$ids = [];
+	$leaves = [];
 	$result = mysql_query("select unix_timestamp(date) as time from attend where student_id=$studentId order by time");
 	if(mysql_num_rows($result)){
 		while($row = mysql_fetch_array($result)){
@@ -22,6 +23,25 @@ function student_calendar ($name, $studentId) {
 			}
 		}
 	}
+	
+	$result = mysql_query("select unix_timestamp(date) as time from leave where student_id=$studentId order by time");
+	if(mysql_num_rows($result)){
+		while($row = mysql_fetch_array($result)){
+			$date = getdate($row[time]);
+			$year = $date[year];
+			$month = $date[mon];
+			$day = $date[mday];
+			$id = 'day_' . $year . '_' . $month . '_' . $day;
+			array_push($leaves, $id);
+			if(!$calendars[$year]){
+				$calendars[$year] = [];
+			}
+			if(!$calendars[$year][$month]){
+				$calendars[$year][$month] = draw_calendar($month,$year);
+			}
+		}
+	}
+	
 	foreach($calendars as $year){
 		foreach($year as $calendar){
 			echo $calendar;
@@ -36,11 +56,11 @@ function student_calendar ($name, $studentId) {
 	}
 ?>
 	<script language="javascript">
-		var mark = function(id, className){
+		var mark = function(id, className, mark){
 			var element = document.getElementById(id);
 			element.className += " " + className;
 			var countDiv = element.getElementsByClassName("count-number")[0];
-			countDiv.innerText += "O ";
+			countDiv.innerText += mark;
 		}
 <?
 	$counter = 0;
@@ -53,7 +73,13 @@ function student_calendar ($name, $studentId) {
 		else if($counter <= $payTotal){
 			$className = "lightBlue";
 		}
-		echo "mark(\"" . $id . "\", \"" . $className . "\");";
+		echo "mark(\"" . $id . "\", \"" . $className . "\", \"O \");";
+	}
+	
+	foreach($leaves as $id){
+		$counter++;
+		$className = "red";
+		echo "mark(\"" . $id . "\", \"" . $className . "\, \"X \");";
 	}
 ?>
 	</script>
