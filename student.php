@@ -29,7 +29,6 @@ Released   : 20140322
 	var myCalendar;
 	function doOnLoad() {
 		myCalendar = new dhtmlXCalendarObject({input: "calendar_input", button: "calendar_icon"});
-		myCalendar.setSensitiveRange(new Date(), null);
 	}
 </script>
 <style>
