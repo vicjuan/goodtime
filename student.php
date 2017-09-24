@@ -30,6 +30,24 @@ Released   : 20140322
 		new dhtmlXCalendarObject({input: "calendar_input", button: "calendar_icon"});
 		new dhtmlXCalendarObject({input: "calendar_input_leave", button: "calendar_icon_leave"});
 	}
+	
+	function checkCheckIn() {
+		if(checkin.date == ""){
+			alert("請選擇日期");
+		}
+		else{
+			checkin.submit();
+		}
+	}
+
+	function checkLeave() {
+		if(leave.date == ""){
+			alert("請選擇日期");
+		}
+		else{
+			leave.submit();
+		}
+	}
 </script>
 <style>
 	#calendar_input {
@@ -58,22 +76,22 @@ Released   : 20140322
 			<div class="title">
 				<h2>手動新增點名</h2>
 			</div>
-			<form method="POST" action="add_checkin.php">
+			<form method="POST" action="add_checkin.php" name="checkin">
 				<input type="text" id="calendar_input" name="date" style="height:40px;font-size:24pt;width:160px">
 				<input type="hidden" name="id" value="<?=$_GET[id]?>">
 				<input type="hidden" name="name" value="<?=$_GET[name]?>">
 				<span class="icon icon-calendar" id="calendar_icon"></span><br>
-				<input type="submit" value="新增點名" class="button" style="border:0;">
+				<input type="button" value="新增點名" class="button" style="border:0;" onClick="checkCheckIn();">
 			</form>
 			<div class="title">
 				<h2>手動新增缺席</h2>
 			</div>	
-			<form method="POST" action="leave_handle.php">
+			<form method="POST" action="leave_handle.php" name="leave">
 				<input type="text" id="calendar_input_leave" name="date" style="height:40px;font-size:24pt;width:160px">
 				<input type="hidden" name="id" value="<?=$_GET[id]?>">
 				<input type="hidden" name="name" value="<?=$_GET[name]?>">
 				<span class="icon icon-calendar" id="calendar_icon_leave"></span><br>
-				<input type="submit" value="新增缺席" class="button" style="border:0;">
+				<input type="button" value="新增缺席" class="button" style="border:0;" onClick="checkLeave();">
 			</form>
 		</div>
 		<div id="tbox2" style="width: 60%">
