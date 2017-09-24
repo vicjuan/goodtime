@@ -52,28 +52,36 @@ Released   : 20140322
 	</div>
 </div>
 <div class="wrapper">
-	<div id="welcome" class="container">
-		<div class="title">
-			<h2>學生<?=$_GET[name]?>的出席情形</h2>
+	<div id="three-column" class="container">
+		<div><span class="arrow-down"></span></div>
+		<div id="tbox1" style="width: 15%">
+			<div class="title">
+				<h2>手動新增點名</h2>
+			</div>
+			<form method="POST" action="add_checkin.php">
+				<input type="text" id="calendar_input" name="date" style="height:40px;font-size:24pt;width:200px">
+				<input type="hidden" name="id" value="<?=$_GET[id]?>">
+				<input type="hidden" name="name" value="<?=$_GET[name]?>">
+				<span class="icon icon-calendar" id="calendar_icon"></span><br>
+				<input type="submit" value="新增點名" class="button" style="border:0;">
+			</form>
+			<div class="title">
+				<h2>手動新增缺席</h2>
+			</div>	
+			<form method="POST" action="leave_handle.php">
+				<input type="text" id="calendar_input_leave" name="date" style="height:40px;font-size:24pt;width:200px">
+				<input type="hidden" name="id" value="<?=$_GET[id]?>">
+				<input type="hidden" name="name" value="<?=$_GET[name]?>">
+				<span class="icon icon-calendar" id="calendar_icon_leave"></span><br>
+				<input type="submit" value="新增缺席" class="button" style="border:0;">
+			</form>
 		</div>
-		<?=student_calendar($_GET[name], $_GET[id]);?>
-		<p></p>
-		<p>手動新增點名</p>
-		<form method="POST" action="add_checkin.php">
-			<input type="text" id="calendar_input" name="date" style="height:40px;font-size:24pt;width:200px">
-			<input type="hidden" name="id" value="<?=$_GET[id]?>">
-			<input type="hidden" name="name" value="<?=$_GET[name]?>">
-			<span class="icon icon-calendar" id="calendar_icon"></span><br>
-			<input type="submit" value="新增點名" class="button" style="border:0;">
-		</form>
-		<p>手動新增缺席</p>
-		<form method="POST" action="leave_handle.php">
-			<input type="text" id="calendar_input_leave" name="date" style="height:40px;font-size:24pt;width:200px">
-			<input type="hidden" name="id" value="<?=$_GET[id]?>">
-			<input type="hidden" name="name" value="<?=$_GET[name]?>">
-			<span class="icon icon-calendar" id="calendar_icon_leave"></span><br>
-			<input type="submit" value="新增缺席" class="button" style="border:0;">
-		</form>
+		<div id="tbox2" style="width: 60%">
+			<div class="title">
+				<h2>學生<?=$_GET[name]?>的出席情形</h2>
+			</div>
+			<?=student_calendar($_GET[name], $_GET[id]);?>
+		</div>
 	</div>
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
