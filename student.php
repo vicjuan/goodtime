@@ -195,8 +195,10 @@ Released   : 20140322
 				echo "<br><br>";
 				echo "<form method=\"POST\" action=\"lesson.php\">";
 				echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\"> ";
-				echo "新增課程 ";
-				echo "<select name=\"day\">";
+				echo "<div class=\"title\">";
+				echo "<h2>新增課程</h2>";
+				echo "</div>";
+				echo "<select name=\"day\" style=\"display:inline; width:100px;\">";
 				echo "<option value=\"0\">星期天</option>";
 				echo "<option value=\"1\">星期一</option>";
 				echo "<option value=\"2\">星期二</option>";
@@ -205,12 +207,12 @@ Released   : 20140322
 				echo "<option value=\"5\">星期五</option>";
 				echo "<option value=\"6\">星期六</option>";
 				echo "</select> ";
-				echo "<select name=\"period\">";
+				echo "<select name=\"period\" style=\"display:inline; width:100px;\">";
 				echo "<option value=\"MORNING\">早上</option>";
 				echo "<option value=\"AFTERNOON\">下午</option>";
 				echo "<option value=\"NIGHT\">晚上</option>";
 				echo "</select> ";
-				echo "<input type=\"submit\" value=\"新增\" class=\"button\" style=\"border:0;\">";
+				echo "<p><input type=\"submit\" value=\"新增\" class=\"button\" style=\"border:0;\"></p>";
 				echo "</form>";
 ?>
 		</div>
