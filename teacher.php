@@ -88,23 +88,6 @@ Released   : 20140322
 					?>
 				</li>
 			</ul>
-		</div>
-		<div id="tbox2" style="width: 50%; background:#a7dcf9;">
-			<div class="title">
-				<h2>學生名冊</h2>
-			</div>
-			<?
-				$result = mysql_query("select * from student order by name");
-				if(mysql_num_rows($result)){
-					while($row = mysql_fetch_array($result)){
-						echo "<a class=\"button\" href=\"student.php?name=" . $row[name] . "&id=" . $row[id] . "\">";
-						echo $row[name];
-						echo "</a> ";
-					}
-				}
-			?>
-		</div>
-		<div id="tbox3" style="width: 15%">
 			<div class="title">
 				<h2>請假學生</h2>
 			</div>
@@ -144,6 +127,21 @@ Released   : 20140322
 					?>
 				</li>
 			</ul>
+		</div>
+		<div id="tbox2" style="width: 60%; background:#a7dcf9;">
+			<div class="title">
+				<h2>學生名冊</h2>
+			</div>
+			<?
+				$result = mysql_query("select * from student order by name");
+				if(mysql_num_rows($result)){
+					while($row = mysql_fetch_array($result)){
+						echo "<a class=\"button\" href=\"student.php?name=" . $row[name] . "&id=" . $row[id] . "\">";
+						echo $row[name];
+						echo "</a> ";
+					}
+				}
+			?>
 		</div>
 	</div>
 	<div id="welcome" class="container" style="border-top: 1px solid rgba(0,0,0,0.2);">
