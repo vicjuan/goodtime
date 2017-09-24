@@ -56,7 +56,7 @@ Released   : 20140322
 		<div><span class="arrow-down"></span></div>
 		<div id="tbox1" style="width: 15%">
 			<div class="title">
-				<h2>按日期查看出席情形</h2>
+				<h2>按日期查看</h2>
 			</div>		
 			<form method="POST" action="day_view.php">
 				<input type="text" id="calendar_input" name="date" style="height:40px;font-size:20pt;width:160px">
