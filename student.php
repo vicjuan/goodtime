@@ -59,7 +59,7 @@ Released   : 20140322
 				<h2>手動新增點名</h2>
 			</div>
 			<form method="POST" action="add_checkin.php">
-				<input type="text" id="calendar_input" name="date" style="height:40px;font-size:24pt;width:200px">
+				<input type="text" id="calendar_input" name="date" style="height:40px;font-size:24pt;width:160px">
 				<input type="hidden" name="id" value="<?=$_GET[id]?>">
 				<input type="hidden" name="name" value="<?=$_GET[name]?>">
 				<span class="icon icon-calendar" id="calendar_icon"></span><br>
@@ -69,7 +69,7 @@ Released   : 20140322
 				<h2>手動新增缺席</h2>
 			</div>	
 			<form method="POST" action="leave_handle.php">
-				<input type="text" id="calendar_input_leave" name="date" style="height:40px;font-size:24pt;width:200px">
+				<input type="text" id="calendar_input_leave" name="date" style="height:40px;font-size:24pt;width:160px">
 				<input type="hidden" name="id" value="<?=$_GET[id]?>">
 				<input type="hidden" name="name" value="<?=$_GET[name]?>">
 				<span class="icon icon-calendar" id="calendar_icon_leave"></span><br>
