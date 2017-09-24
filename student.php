@@ -195,7 +195,7 @@ Released   : 20140322
 ?>
 		</div>
 	</div>
-	<div id="welcome" class="container">
+	<div id="welcome" class="container" style="border-top: 1px solid rgba(0,0,0,0.2);">
 		<div class="title">
 			<h2>修改基本資料</h2>
 		</div>
