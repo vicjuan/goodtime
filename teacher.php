@@ -29,7 +29,6 @@ Released   : 20140322
 <script>
 	function doOnLoad() {
 		new dhtmlXCalendarObject({input: "calendar_input", button: "calendar_icon"});
-		new dhtmlXCalendarObject({input: "calendar_input_leave", button: "calendar_icon_leave"});
 	}
 </script>
 <style>
