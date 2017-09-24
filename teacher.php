@@ -23,6 +23,27 @@ Released   : 20140322
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="dgtmlxCalendar/fonts/font_roboto/roboto.css"/>
+<link rel="stylesheet" type="text/css" href="dgtmlxCalendar/dhtmlxcalendar.css"/>
+<script src="dgtmlxCalendar/dhtmlxcalendar.js"></script>
+<script>
+	function doOnLoad() {
+		new dhtmlXCalendarObject({input: "calendar_input", button: "calendar_icon"});
+		new dhtmlXCalendarObject({input: "calendar_input_leave", button: "calendar_icon_leave"});
+	}
+</script>
+<style>
+	#calendar_input {
+		border: 1px solid #dfdfdf;
+		font-family: Roboto, Arial, Helvetica;
+		font-size: 14px;
+		color: #404040;
+	}
+	#calendar_icon {
+		vertical-align: middle;
+		cursor: pointer;
+	}
+</style>
 <body>
 <div id="header-wrapper">
 	<div id="header" class="container">
@@ -35,6 +56,14 @@ Released   : 20140322
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
 		<div id="tbox1" style="width: 15%">
+			<div class="title">
+				<h2>按日期查看出席情形</h2>
+			</div>		
+			<form method="POST" action="day_view.php">
+				<input type="text" id="calendar_input" name="date" style="height:40px;font-size:24pt;width:200px">
+				<span class="icon icon-calendar" id="calendar_icon"></span><br>
+				<input type="submit" value="查看" class="button" style="border:0;">
+			</form>
 			<div class="title">
 				<h2>本日上課學生</h2>
 			</div>
