@@ -146,7 +146,7 @@ Released   : 20140322
 				echo "<div class=\"title\">";
 				echo "<h2>新增課程</h2>";
 				echo "</div>";
-				echo "<select name=\"day\" style=\"display:inline; width:100px;\">";
+				echo "<select name=\"day\" style=\"display:inline; width:80px;\">";
 				echo "<option value=\"0\">星期天</option>";
 				echo "<option value=\"1\">星期一</option>";
 				echo "<option value=\"2\">星期二</option>";
@@ -155,7 +155,7 @@ Released   : 20140322
 				echo "<option value=\"5\">星期五</option>";
 				echo "<option value=\"6\">星期六</option>";
 				echo "</select> ";
-				echo "<select name=\"period\" style=\"display:inline; width:100px;\">";
+				echo "<select name=\"period\" style=\"display:inline; width:80px;\">";
 				echo "<option value=\"MORNING\">早上</option>";
 				echo "<option value=\"AFTERNOON\">下午</option>";
 				echo "<option value=\"NIGHT\">晚上</option>";
