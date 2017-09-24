@@ -47,6 +47,9 @@ Released   : 20140322
 			}
 		?>
 	</div>
+	<div id="welcome" class="container" style="border-top: 1px solid rgba(0,0,0,0.2);">
+		<a href="teacher.php" class="button">回到老師首頁</a>
+	</div>
 </div>
 <div id="copyright">
 	<p>&copy; Untitled. All rights reserved. | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
