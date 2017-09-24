@@ -87,36 +87,6 @@ Released   : 20140322
 		<div><span class="arrow-down"></span></div>
 		<div id="tbox1" style="width: 15%">
 			<div class="title">
-				<h2>繳費情形</h2>
-			</div>
-<?
-				$result = mysql_query("select * from pay where student_id=$_GET[id] order by time desc");
-				if(mysql_num_rows($result)){
-					echo "<ul>";
-					while($row = mysql_fetch_array($result)){
-						echo "<li>";
-						echo "<p><h3>" . $row[time] . "</h3></p>";
-						echo "<form method=\"POST\" action=\"pay_edit.php\">";
-						echo $row[pay_class] . "堂 ";
-						echo "<input type=\"submit\" value=\"修改紀錄\">";
-						echo "<input type=\"hidden\" name=\"id\" value=\"" . $row[id] . "\">";
-						echo "</form>";
-						echo "</li>";
-					}
-					echo "</ul>";
-				}
-				echo "<br><br>";
-				echo "<form method=\"POST\" action=\"pay.php\">";
-				echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\"> ";
-				echo "我要繳 ";
-				echo "<input type=\"text\" name=\"classes\" style=\"width: 30px;\"> ";
-				echo "堂課的錢 ";
-				echo "<input type=\"submit\" value=\"繳費\" class=\"button\" style=\"border:0;\">";
-				echo "</form>";
-?>
-		</div>
-		<div id="tbox2" style="width: 60%">
-			<div class="title">
 				<h2>上課日期</h2>
 			</div>
 <?
@@ -191,6 +161,36 @@ Released   : 20140322
 				echo "<option value=\"NIGHT\">晚上</option>";
 				echo "</select> ";
 				echo "<p><input type=\"submit\" value=\"新增\" class=\"button\" style=\"border:0;\"></p>";
+				echo "</form>";
+?>
+		</div>
+		<div id="tbox2" style="width: 60%">
+			<div class="title">
+				<h2>繳費情形</h2>
+			</div>
+<?
+				$result = mysql_query("select * from pay where student_id=$_GET[id] order by time desc");
+				if(mysql_num_rows($result)){
+					echo "<ul>";
+					while($row = mysql_fetch_array($result)){
+						echo "<li>";
+						echo "<p><h3>" . $row[time] . "</h3></p>";
+						echo "<form method=\"POST\" action=\"pay_edit.php\">";
+						echo $row[pay_class] . "堂 ";
+						echo "<input type=\"submit\" value=\"修改紀錄\">";
+						echo "<input type=\"hidden\" name=\"id\" value=\"" . $row[id] . "\">";
+						echo "</form>";
+						echo "</li>";
+					}
+					echo "</ul>";
+				}
+				echo "<br><br>";
+				echo "<form method=\"POST\" action=\"pay.php\">";
+				echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\"> ";
+				echo "我要繳 ";
+				echo "<input type=\"text\" name=\"classes\" style=\"width: 30px;\"> ";
+				echo "堂課的錢 ";
+				echo "<input type=\"submit\" value=\"繳費\" class=\"button\" style=\"border:0;\">";
 				echo "</form>";
 ?>
 		</div>
