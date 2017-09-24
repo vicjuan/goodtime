@@ -31,6 +31,15 @@ Released   : 20140322
 		myCalendar = new dhtmlXCalendarObject({input: "calendar_input", button: "calendar_icon"});
 		myCalendar.setSensitiveRange(new Date(), null);
 	}
+	
+	function check() {
+		if(leave.date.value == ""){
+			alert("請選擇日期");
+		}
+		else{
+			leave.submit();
+		}
+	}
 </script>
 <style>
 	#calendar_input {
@@ -61,11 +70,11 @@ Released   : 20140322
 		<div class="title">
 			<h2><?=$_POST[name]?>想要哪一天請假?</h2>
 		</div>
-		<form method="POST" action="leave_handle.php">
+		<form method="POST" action="leave_handle.php" name="leave">
 			<input type="text" id="calendar_input" name="date" style="height:40px;font-size:24pt;width:200px">
 			<input type="hidden" name="id" value="<?=$_POST[id]?>">
 			<span class="icon icon-calendar" id="calendar_icon"></span><br>
-			<input type="submit" value="請假" class="button" style="border:0;">
+			<input type="button" value="請假" class="button" style="border:0;" onClick="check();">
 		</form>
 	</div>
 </div>
