@@ -40,13 +40,13 @@ Released   : 20140322
 			<h2>
 			<?
 				if($_POST['action'] == "delete"){
-					$result = mysql_query("delete from leave where id=$_POST[id]");
+					$result = mysql_query("delete from `leave` where id=$_POST[id]");
 					if(!$result){
 						die('刪除失敗' . mysql_error());
 					}
 				}
 				else{
-					$result = mysql_query("update leave set date=\"$_POST[date]\" where id=$_POST[id]");
+					$result = mysql_query("update `leave` set date=\"$_POST[date]\" where id=$_POST[id]");
 					if(!$result){
 						die('修改失敗' . mysql_error());
 					}
