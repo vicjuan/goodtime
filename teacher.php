@@ -43,7 +43,7 @@ Released   : 20140322
 		cursor: pointer;
 	}
 </style>
-<body>
+<body onload="doOnLoad();">
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="logo">
