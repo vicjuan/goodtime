@@ -32,7 +32,7 @@ Released   : 20140322
 	}
 	
 	function checkCheckIn() {
-		if(checkin.date == ""){
+		if(checkin.date.value == ""){
 			alert("請選擇日期");
 		}
 		else{
@@ -41,7 +41,7 @@ Released   : 20140322
 	}
 
 	function checkLeave() {
-		if(leave.date == ""){
+		if(leave.date.value == ""){
 			alert("請選擇日期");
 		}
 		else{
