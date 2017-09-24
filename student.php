@@ -114,6 +114,30 @@ Released   : 20140322
 				echo "<input type=\"submit\" value=\"繳費\" class=\"button\" style=\"border:0;\">";
 				echo "</form>";
 ?>
+		</div>
+		<div id="tbox2" style="width: 60%">
+			<div class="title">
+				<h2>修改基本資料</h2>
+			</div>
+			<form method="POST" action="student_edit.php">
+				<table align="center">
+					<tr>
+						<th>姓名</th><th>爸爸媽媽電話</th>
+					</tr>
+					<tr>
+<?
+						$result = mysql_query("select * from student where id=$_GET[id]");
+						if(mysql_num_rows($result)){
+							$row = mysql_fetch_array($result);
+							echo "<td><input type=\"text\" name=\"name\" style=\"height:40px;font-size:24pt;width:200px\" value=\"" . $row[name] . "\"></td>";
+							echo "<td><input type=\"text\" name=\"number\" style=\"height:40px;font-size:24pt;width:200px\" value=\"" . $row[number] . "\"></td>";
+							echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\">";
+						}
+?>
+					</tr>
+				</table>
+				<input type="submit" value="修改" class="button" style="border:0;" >
+			</form>
 			<div class="title">
 				<h2>上課日期</h2>
 			</div>
@@ -189,30 +213,6 @@ Released   : 20140322
 				echo "<input type=\"submit\" value=\"新增\" class=\"button\" style=\"border:0;\">";
 				echo "</form>";
 ?>
-		</div>
-		<div id="tbox2" style="width: 60%">
-			<div class="title">
-				<h2>修改基本資料</h2>
-				<form method="POST" action="student_edit.php">
-					<table align="center">
-						<tr>
-							<th>姓名</th><th>爸爸媽媽電話</th>
-						</tr>
-						<tr>
-<?
-							$result = mysql_query("select * from student where id=$_GET[id]");
-							if(mysql_num_rows($result)){
-								$row = mysql_fetch_array($result);
-								echo "<td><input type=\"text\" name=\"name\" style=\"height:40px;font-size:24pt;width:200px\" value=\"" . $row[name] . "\"></td>";
-								echo "<td><input type=\"text\" name=\"number\" style=\"height:40px;font-size:24pt;width:200px\" value=\"" . $row[number] . "\"></td>";
-								echo "<input type=\"hidden\" name=\"id\" value=\"" . $_GET[id] . "\">";
-							}
-?>
-						</tr>
-					</table>
-					<input type="submit" value="修改" class="button" style="border:0;" >
-				</form>
-			</div>
 		</div>
 	</div>
 	<div id="welcome" class="container" style="border-top: 1px solid rgba(0,0,0,0.2);">
