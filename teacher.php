@@ -59,7 +59,7 @@ Released   : 20140322
 				<h2>按日期查看出席情形</h2>
 			</div>		
 			<form method="POST" action="day_view.php">
-				<input type="text" id="calendar_input" name="date" style="height:40px;font-size:24pt;width:200px">
+				<input type="text" id="calendar_input" name="date" style="height:40px;font-size:20pt;width:160px">
 				<span class="icon icon-calendar" id="calendar_icon"></span><br>
 				<input type="submit" value="查看" class="button" style="border:0;">
 			</form>
