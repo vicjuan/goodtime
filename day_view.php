@@ -40,7 +40,7 @@ Released   : 20140322
 			$result = mysql_query("select * from student left join attend on student.id = attend.student_id where unix_timestamp(attend.date) >= unix_timestamp(\"$_POST[date]\") and unix_timestamp(attend.date) < unix_timestamp(\"$_POST[date]\") + 86400");
 			if(mysql_num_rows($result)){
 				while($row = mysql_fetch_array($result)){
-					echo "<a class=\"button\" href=\"student.php?name=" . $row[name] . "&id=" . $row[id] . "\">";
+					echo "<a class=\"button\" href=\"student.php?name=" . $row[name] . "&id=" . $row[student_id] . "\">";
 					echo $row[name];
 					echo "</a> ";
 				}
